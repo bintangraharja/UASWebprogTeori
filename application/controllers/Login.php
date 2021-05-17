@@ -15,10 +15,5 @@ class Login extends CI_Controller
         $data['sidebar'] = $this->load->view('sidebar/sidebar.php', $data, TRUE);
         $this->load->view('page/Login.php',$data);
     }
-    public function signUp(){
-        $data['style'] = $this->load->view('include/style.php', NULL, TRUE);
-        $data['sidebar'] = $this->load->view('sidebar/sidebar.php', $data, TRUE);
-        $this->load->view('page/Register',$data);
-    }
 }
 ?>

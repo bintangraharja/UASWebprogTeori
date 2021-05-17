@@ -7,10 +7,10 @@
         <ul>
         	<li>
                 <div class="fa">
-                    <img src="./Gallery/LogoPotrait.png" width="60" height="60">
+                    <img src="<?php echo base_url().'assets/LogoPotrait.png'?>" width="60" height="60">
                 </div>
                 <span class="nav-text">
-                    <img src="./Gallery/LogoLandscape.png" width="150" height="60">
+                <img src="<?php echo base_url().'assets/LogoLandscape.png'?>" width="150" height="60">
                 </span>
             </li>
             <li class="has-subnav">
@@ -33,7 +33,7 @@
 
         <ul class="logout">
             <li>
-               <a href="<?php echo site_url('home/signIn');?>">
+               <a href="<?php echo site_url('Login');?>">
                     <i class="fa fa-sign-in fa-2x"></i>
                     <span class="nav-text">
                         SignIn / SignUp

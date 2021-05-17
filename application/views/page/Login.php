@@ -32,7 +32,7 @@
 		</form>
 		<br><br>
 		<div class="mid">
-			<a href="<?php echo site_url('login/signUp'); ?>">Don't have an account? <button type="button" class="btn btnAcc">Create New Account</button></a>
+			<a href="<?php echo site_url('SignUp'); ?>">Don't have an account? <button type="button" class="btn btnAcc">Create New Account</button></a>
 		</div>
 		<br><br>
 	</div>
