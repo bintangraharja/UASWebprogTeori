@@ -1,26 +1,33 @@
-<?php  
-	include_once('sidebar.php');
-?>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Rental UAS IF430 - Gaming Buddy</title>
+	<?php echo $style; ?>
 </head>
-<body class="home" style= "background-image: url('<?php base_url('')?>assets/Background/HomeBG.jpg');">
+<body class="home" style= "background-image: url('../<?php base_url('')?>assets/Background/HomeBG.jpg');">
+	<?php echo $sidebar;
+	foreach($product as $data){
+		$id = $data['ConsoleID'];
+		$name = $data['ConsoleName'];
+		$price = $data['Price'];
+		$qty = $data['Qty'];
+		$desc = $data['Description'];
+	}
+	?>
 	<div class="container">
 		<br><br><br>
 		<h1 class="headTitle">Our Console</h1>
 		<br>
-		<a href="HomePage.php"><button class="btn btnBack"><span class="glyphicon glyphicon-menu-left"></span> Back</button></a>
+		<a href="<?php echo base_url(); ?>"><button class="btn btnBack"><span class="glyphicon glyphicon-menu-left"></span> Back</button></a>
 		<br><br>
-		<img src="./Gallery/C0001.jpg" style="width:50%">
+		<img src="<?php echo site_url('home/showImg/').$id ?>" style="width:50%">
 		<div class ="col-sm-6" style="text-align:justify; float:right;">
-			<h1 class="titleConsole">PlayStation 1</h1>
+			<h1 class="titleConsole"><?php echo $name ?></h1>
 			<hr style="border-color: #FFBB0E">
-			<p>Merupakan konsol video game yang dikembangkan oleh Sony Computer Entertainment yang diliris pada 3 Desember 1994. Konsol ini menggunakan unit kompresi video yang disebut MDEC sehingga memungkinkan untuk menampilkan video full motion dengan kualitas lebih tinggi dari konsol lain pada generasinya.</p>
-			<p>Ready Stock &nbsp;: 5 </p>
-			<p>Rent Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: Rp 2.900,- /day</p>
+			<p><?php echo $desc; ?></p>
+			<p>Ready Stock &nbsp;: <?php echo $qty; ?> </p>
+			<p>Rent Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: Rp <?php echo $price ?>,- /day</p>
 			<button class="btn btnBook">Add to Cart</button>
 		</div>
 	</div>

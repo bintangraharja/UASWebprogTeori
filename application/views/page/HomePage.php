@@ -27,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		?>
 
 			<div class="col-sm-4 pad">
-				<a href="DetailConsole.php" class="menu-border">
+				<a href="<?php echo site_url('detail').'/'.$consolID;?>" class="menu-border">
 					<div class="card mid" style="width: 85%;">
 					<img class="card-img-top" style="width: 100%" src="<?php echo site_url('home/showImg/').$consolID ?>">
 						<div class="card-body">

@@ -21,6 +21,12 @@ class Home extends CI_Controller
         $this->load->model('home_model');
         $this->home_model->get_image($id);
     }
+    public function showDetail(){
+        $id = $this->uri->segment(3);
+        $data['style'] = $this->load->view('include/style.php', NULL, TRUE);
+        $data['sidebar'] = $this->load->view('sidebar/sidebar.php', $data, TRUE);
+        $this->load->view('page/DetailConsole.php',$data);
+    }
 
 }
 ?>
