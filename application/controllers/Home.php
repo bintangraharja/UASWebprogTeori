@@ -6,14 +6,20 @@ class Home extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('');
+        $this->load->model('home_model');
     }
 
     public function index()
     {
+        $data['product'] = $this->home_model->get_product();
         $data['style'] = $this->load->view('include/style.php', NULL, TRUE);
         $data['sidebar'] = $this->load->view('sidebar/sidebar.php', $data, TRUE);
         $this->load->view('page/HomePage.php',$data);
+    }
+    public function showImg(){
+        $id = $this->uri->segment(3);
+        $this->load->model('home_model');
+        $this->home_model->get_image($id);
     }
 
 }
