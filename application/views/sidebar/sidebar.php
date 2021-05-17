@@ -22,7 +22,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="<?php echo base_url(); ?>">
                     <i class="fa fa-home fa-2x"></i>
                     <span class="nav-text">
                         Home
@@ -33,7 +33,7 @@
 
         <ul class="logout">
             <li>
-               <a href="Login.php">
+               <a href="<?php echo site_url('home/signIn');?>">
                     <i class="fa fa-sign-in fa-2x"></i>
                     <span class="nav-text">
                         SignIn / SignUp

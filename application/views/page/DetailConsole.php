@@ -7,7 +7,7 @@
 <head>
 	<title>Rental UAS IF430 - Gaming Buddy</title>
 </head>
-<body class="home">
+<body class="home" style= "background-image: url('<?php base_url('')?>assets/Background/HomeBG.jpg');">
 	<div class="container">
 		<br><br><br>
 		<h1 class="headTitle">Our Console</h1>

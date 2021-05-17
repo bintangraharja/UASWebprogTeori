@@ -1,13 +1,13 @@
-<?php
-	include_once('sidebar.php');
-?>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Rental UAS IF430 - Gaming Buddy</title>
+	<?php echo $style; ?>
+	<?php echo $sidebar; ?>
 </head>
-<body class="home">
+<body class="home" style= "background-image: url('<?php base_url('')?>assets/Background/HomeBG.jpg');">
+	
 	<br><br><br><br>
 	<div class="container bg-form">
 		<h2 class="headTitle">Create New Account</h2>
@@ -52,7 +52,7 @@
 		</form>
 		<br><br>
 		<div class="mid">
-			<a href="Login.php">Already have an account? <button type="button" class="btn btnAcc">Sign In</button></a>
+			<a href="<?php echo site_url('login/');?>">Already have an account? <button type="button" class="btn btnAcc">Sign In</button></a>
 		</div>
 		<br><br>
 	</div>

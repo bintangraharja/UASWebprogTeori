@@ -7,8 +7,7 @@
 		echo $sidebar;
 	?>
 </head>
-<body class="home" style="background-image: url('<?php base_url('assets/Background/HomeBG.jpg')?>')">
-	<div class="container">
+<body class="home" style= "background-image: url('<?php base_url('')?>assets/Background/HomeBG.jpg');">	<div class="container">
 		<br><br><br>
 			<h1 class="headTitle">Our Console</h1>
 		<br><br><br>
