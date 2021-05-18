@@ -4,15 +4,23 @@
 	<title>Rental UAS IF430 - Gaming Buddy</title>
 	<?php 
 	echo $style; 
-	echo $sidebar;
 	?>
+	<script>
+       $(document).ready(function(){
+           $('.captcha-refresh').on('click', function(){
+               $.get('<?php echo base_url().'login/refresh'; ?>', function(data){
+                   $('#image_captcha').html(data);
+               });
+           });
+       });
+   </script>
 </head>
-<body class="home" style= "background-image: url('../<?php base_url('')?>/assets/Background/HomeBG.jpg');">
+<body class="home" >
 	<br><br><br><br>
 	<div class="container bg-form">
 		<h2 class="headTitle">Sign In</h2>
 		<br>
-		<form action="">
+		<form method="post">
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Email</label>
 				<div class="col-sm-10">
@@ -25,10 +33,13 @@
 					<input type="password" id="password" class="form-control" placeholder="********" required>
 				</div>
 			</div>
-			<!--
-			 	INSERT CAPTCHA HERE 
-									-->
-			<button type="submit" class="btn btn-block btnReglog mid">SIGN IN</button>
+			<div class="form-group row">
+				<p id="image_captcha"><?php echo $captchaImg; ?></p>
+				<a href="javascript:void(0);" class="captcha-refresh" >TEST<img src=""/></a>
+				<input type="text" name="captcha" value=""/>
+			</div>
+			
+			<input type="submit" name="submit" class="btn btn-block btnReglog mid">SIGN IN</button>
 		</form>
 		<br><br>
 		<div class="mid">

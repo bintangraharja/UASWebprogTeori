@@ -6,7 +6,7 @@
 	<?php echo $style; ?>
 	<?php echo $sidebar; ?>
 </head>
-<body class="home" style= "background-image: url('../<?php base_url('')?>assets/Background/HomeBG.jpg');">
+<body class="home" style= "background-image: url('<?php base_url('')?>assets/Background/HomeBG.jpg');">
 	
 	<br><br><br><br>
 	<div class="container bg-form">
