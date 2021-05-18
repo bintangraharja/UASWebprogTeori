@@ -79,6 +79,11 @@
                                 <th> Price </th>
                                 <th> </th>
                             </tr>
+                            <?php
+                                foreach($orders as $temp){
+                                    $Console
+                                }
+                            ?>
                         </thead>
                     </table>
                 </div>

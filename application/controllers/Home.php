@@ -7,6 +7,7 @@ class Home extends CI_Controller
     {
         parent::__construct();
         $this->load->model('home_model');
+        $this->load->model('detail_model');
     }
 
     public function index()
@@ -16,6 +17,7 @@ class Home extends CI_Controller
         if($this->session->userdata('status') != 'login'){
         $data['sidebar'] = $this->load->view('sidebar/sidebar.php', $data, TRUE);
         }else{
+        $data['orders'] = $this->detail_model->get_temp($this->session->userdata('userID'));
         $data['sidebar'] = $this->load->view('sidebar/sidebarIn.php', $data, TRUE);
         }
         $this->load->view('page/HomePage.php',$data);

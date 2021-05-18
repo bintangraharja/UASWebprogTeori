@@ -20,5 +20,14 @@ Class Detail_model extends CI_Model{
             return 'false';
         }
     }
+
+    function get_temp($userid){
+        $query = $this->db->query("SELECT temporder.ConsoleID, temporder.UserID, menu.ConsoleName, menu.Price
+        FROM temporder
+        LEFT OUTER JOIN menu ON menu.ConsoleID = temporder.ConsoleID
+        WHERE temporder.UserID = '2'
+        GROUP BY temporder.UserID");
+        return $query->result_array();
+    }
 }
 ?>
