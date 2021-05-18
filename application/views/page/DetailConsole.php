@@ -19,15 +19,15 @@
 		<br><br><br>
 		<h1 class="headTitle">Our Console</h1>
 		<br>
-		<a href="<?php echo base_url(); ?>"><button class="btn btnBack"><span class="glyphicon glyphicon-menu-left"></span> Back</button></a>
+		<a href="<?php echo base_url(); ?>"><input type="submit" class="btn btnBack" value="Back"></a>
 		<br><br>
 		<img src="<?php echo site_url('home/showImg/').$id ?>" style="width:50%">
 		<div class ="col-sm-6" style="text-align:justify; float:right;">
 			<h1 class="titleConsole"><?php echo $name ?></h1>
 			<hr style="border-color: #FFBB0E">
-			<p><?php echo $desc; ?></p>
-			<p>Ready Stock &nbsp;: <?php echo $qty; ?> </p>
-			<p>Rent Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: Rp <?php echo $price ?>,- /day</p>
+			<p class="desc"><?php echo $desc; ?></p>
+			<p class="desc">Ready Stock &nbsp;: <?php echo $qty; ?> </p>
+			<p class="desc">Rent Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: Rp <?php echo $price ?>,- /day</p>
 			<form method="post">
 			<input name="submit" type="submit" class="btn btnBook" value="Add to Cart" <?php if($bought == "true"){echo 'disabled';}?> ></input>
 			</form>

@@ -67,6 +67,10 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-resize-small"></span></button>
+                    <!-- <span class="icon-input-btn">
+                        <i class="glyphicon glyphicon-resize-small"></i> 
+                        <input type="submit" class="close" data-dismiss="modal" value="&#xf043;">
+                    </span> -->
                     <h4><?php echo $this->session->userdata('name');?>'s Cart</h4>
                 </div>
                 <div class="modal-body">
@@ -89,10 +93,15 @@
                                     
                             ?>
                             <tr>
-                                <td><img class="card-img-top" style="width: 100%" src="<?php echo site_url('home/showImg/').$ConsoleId ?>"></td>
+                                <td><img style="width: auto; height: 100px;" src="<?php echo site_url('home/showImg/').$ConsoleId ?>"></td>
                                 <td><?php echo $ConsoleName; ?> </td>
                                 <td> <?php echo $duration; ?> days </td>
                                 <td><?php echo $Price; ?> </td>
+                                <td>
+                                    <a href="#">
+                                        <span class="glyphicon glyphicon-minus-sign deleteMenu"></span>
+                                    </a>
+                                </td>
                             </tr>
                             <?php
                             $totalPrice = $totalPrice + $Price;
@@ -101,16 +110,26 @@
                         </thead>
                     </table>
                 </div>
-                <div class="modal-body modalCart">
-                    <div class="form-inline durationCart" style="text-align: center;">
-                        <label>Add Duration </label>
-                        <!-- Add + - input -->
+                <div class="modal-body durationCart">
+                    <div class="col-sm-5">
+                        <h4 style="text-align: right;">Add Duration </h4>
+                    </div>
+                    <div class="col-sm-7">
+                        <div class="input-group input-number-group">
+                            <div class="input-group-button">
+                                <span class="input-number-decrement">-</span>
+                            </div>
+                            <input class="input-number" type="number" value="1" min="1" max="30">
+                            <div class="input-group-button">
+                                <span class="input-number-increment">+</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="modal-body modalCart">
+                <div class="modal-body subCart">
                     <p>Subtotal    : <?php echo $totalPrice; ?> </p>                
                 </div>
-                <button class="btn btn-block btnBook">BOOK ORDER</button>
+                <input type="submit" class="btn btn-block btnBook" value="BOOK ORDER">
             </div>
         </div>
     </div>
@@ -139,9 +158,19 @@
             show: false,
             backdrop: 'static'
         });
-
         $('#cartModal').click(function() {
             $('#theModal').modal('show');
         })
     });
+
+    $('.input-number-increment').click(function() {
+        var $input = $(this).parents('.input-number-group').find('.input-number');
+        var val = parseInt($input.val(), 10);
+        $input.val(val + 1);
+    });
+    $('.input-number-decrement').click(function() {
+        var $input = $(this).parents('.input-number-group').find('.input-number');
+        var val = parseInt($input.val(), 10);
+        $input.val(val - 1);
+    })
 </script>

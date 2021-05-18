@@ -25,23 +25,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				echo "<div class='row'>";
 			}
 		?>
-
-			<div class="col-sm-4 pad">
-				<a href="<?php echo site_url('detail').'/'.$consolID;?>" class="menu-border">
-					<div class="card mid" style="width: 85%;">
-					<img class="card-img-top" style="width: 100%" src="<?php echo site_url('home/showImg/').$consolID ?>">
-						<div class="card-body">
-							<h4 class="card-title mid"><?php echo $consolName?></h4>
-							<br><br>
-							<footer class="blockquote-footer seeDetails">
-								<small>
-									See Details
-								</small>
-							</footer>
-						</div>
+		<div class="col-sm-4 pad">
+			<a href="<?php echo site_url('detail').'/'.$consolID;?>" class="menu-border">
+				<div class="card mid" style="width: 85%;">
+				<img class="card-img-top" style="width: 100%" src="<?php echo site_url('home/showImg/').$consolID ?>">
+					<div class="card-body">
+						<h4 class="card-title mid"><?php echo $consolName?></h4>
+						<br><br>
+						<footer class="blockquote-footer seeDetails">
+							<small>
+								See Details
+							</small>
+						</footer>
 					</div>
-				</a>
-			</div>
+				</div>
+			</a>
+		</div>
 		<?php
 		if($i == 3){
 			echo "</div>";
@@ -51,6 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 		}
 		?>
+		<br><br>
 	</div>
 </body>
 </html>
