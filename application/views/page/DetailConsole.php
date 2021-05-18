@@ -19,7 +19,7 @@
 		<br><br><br>
 		<h1 class="headTitle">Our Console</h1>
 		<br>
-		<a href="<?php echo base_url(); ?>"><input type="submit" class="btn btnBack" value="Back"></a>
+		<a href="<?php echo base_url(); ?>"><button type="submit" class="btn btnBack"><span class="glyphicon glyphicon-chevron-left"></span> Back</button></a>
 		<br><br>
 		<img src="<?php echo site_url('home/showImg/').$id ?>" style="width:50%">
 		<div class ="col-sm-6" style="text-align:justify; float:right;">

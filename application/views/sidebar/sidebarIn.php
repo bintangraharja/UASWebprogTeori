@@ -67,14 +67,10 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-resize-small"></span></button>
-                    <!-- <span class="icon-input-btn">
-                        <i class="glyphicon glyphicon-resize-small"></i> 
-                        <input type="submit" class="close" data-dismiss="modal" value="&#xf043;">
-                    </span> -->
                     <h4><?php echo $this->session->userdata('name');?>'s Cart</h4>
                 </div>
                 <div class="modal-body">
-                    <table id="tables" class="table table-striped table-border dataTable" style="width: 100%">
+                    <table id="tables" class="table table-striped table-border dataTable cartBody" style="width: 100%">
                         <thead class="cartHead">
                             <tr>
                                 <th> Image </th>
@@ -128,7 +124,7 @@
                 <div class="modal-body subCart">
                     <p>Subtotal    : <?php echo $totalPrice; ?> </p>                
                 </div>
-                <input type="submit" class="btn btn-block btnBook" value="BOOK ORDER">
+                <input type="submit" class="btn btn-block btnBook" name="submit" value="BOOK ORDER">
             </div>
         </div>
     </div>
