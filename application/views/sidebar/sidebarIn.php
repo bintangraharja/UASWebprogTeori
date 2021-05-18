@@ -81,6 +81,7 @@
                             </tr>
                             <?php
                                 $totalPrice = 0;
+                                $duration = 1;
                                 foreach($orders as $temp){
                                     $ConsoleId = $temp['ConsoleID'];
                                     $ConsoleName = $temp['ConsoleName'];
@@ -90,7 +91,7 @@
                             <tr>
                                 <td><img class="card-img-top" style="width: 100%" src="<?php echo site_url('home/showImg/').$ConsoleId ?>"></td>
                                 <td><?php echo $ConsoleName; ?> </td>
-                                <td> 1 days </td>
+                                <td> <?php echo $duration; ?> days </td>
                                 <td><?php echo $Price; ?> </td>
                             </tr>
                             <?php
