@@ -7,6 +7,7 @@ class Login extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Account');
+        $this->load->helper("file");
     }
 
     public function index()
@@ -16,29 +17,33 @@ class Login extends CI_Controller
             $contain_sess_captcha = $this->session->userdata('valuecaptchaCode');
             if ($captcha_insert === $contain_sess_captcha) {
                 $email = $this->input->post('email');
-                $password = $this->input->post('password');
-                $where = array(
-                    'email' => $email,
-                    'password' => md5($password)
-                );
-                $cek = $this->Account->login("account",$where);
+                $password = md5($this->input->post('password'));
+                // $where = array(
+                //     'Email' => $email,
+                //     'Password' => md5($password)
+                // );
+                $cek = $this->Account->login($email,$password);
                 if($cek > 0){
+                    delete_files("image_for_captcha");
                     $akun = $this->Account->getakun($email, $password);
                     
                     $data_session = array(
                         'name' => $akun['FName'] ,
                         'status' => "login"
                     );
-                $this->session->set_userdata($data_session);
-                if($akun['FName'] == "Admin"){
-                    redirect('home/admin');
+                    $this->session->set_userdata($data_session);
+                    if($akun['FName'] == "Admin"){
+                        redirect('home/admin');
+                    }else{
+                        redirect('home');
+                    }
                 }else{
-                    redirect('home');
-                }
+                    $this->session->sess_destroy();
+                    $data['failInfo'] = "Email/Password are wrong";
                 }
             
             } else {
-                echo 'Failure';exit;
+                $data['failInfo'] = "Captcha didn't match!";
             }
         }
         $config = array(
@@ -78,6 +83,5 @@ class Login extends CI_Controller
         $this->session->sess_destroy();
         redirect();
     }
-    
 }
 ?>

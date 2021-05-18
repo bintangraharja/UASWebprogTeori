@@ -18,7 +18,7 @@
                 </a> 
             </li>
             <li>
-                <a href="HomePage.php">
+                <a href="<?php echo site_url('home');?>">
                     <i class="fa fa-home fa-2x"></i>
                     <span class="nav-text">
                         Home

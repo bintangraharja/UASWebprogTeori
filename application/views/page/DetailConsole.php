@@ -28,7 +28,9 @@
 			<p><?php echo $desc; ?></p>
 			<p>Ready Stock &nbsp;: <?php echo $qty; ?> </p>
 			<p>Rent Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: Rp <?php echo $price ?>,- /day</p>
-			<button class="btn btnBook">Add to Cart</button>
+			<form  method="post">
+			<input name="submit" class="btn btnBook" value="Add to Cart"></input>
+			</form>
 		</div>
 	</div>
 </body>

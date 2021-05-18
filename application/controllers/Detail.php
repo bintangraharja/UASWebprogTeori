@@ -16,7 +16,11 @@ class Detail extends CI_Controller
         $this->load->model('detail_model');
         $data['product'] = $this->detail_model->get_product($id);
         $data['style'] = $this->load->view('include/style.php', NULL, TRUE);
-        $data['sidebar'] = $this->load->view('sidebar/sidebar.php', $data, TRUE);
+        if($this->session->userdata('status') != 'login'){
+            $data['sidebar'] = $this->load->view('sidebar/sidebar.php', $data, TRUE);
+            }else{
+            $data['sidebar'] = $this->load->view('sidebar/sidebarIn.php', $data, TRUE);
+            }
         $this->load->view('page/DetailConsole.php',$data);
     }
     
