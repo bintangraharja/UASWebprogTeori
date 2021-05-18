@@ -90,7 +90,7 @@
                             <tr>
                                 <td><img style="width: auto; height: 100px;" src="<?php echo site_url('home/showImg/').$ConsoleId ?>"></td>
                                 <td><?php echo $ConsoleName; ?> </td>
-                                <td> 1 days </td>
+                                <td><p class="duration">1 days</p></td>
                                 <td><?php echo $Price; ?> </td>
                                 <td>
                                     <a href="#">
@@ -114,7 +114,7 @@
                             <div class="input-group-button">
                                 <span class="input-number-decrement">-</span>
                             </div>
-                            <input class="input-number" type="number" value="1" min="1" max="30">
+                            <input name="durations" class="input-number" type="number" value="1" min="1" max="30">
                             <div class="input-group-button">
                                 <span class="input-number-increment">+</span>
                             </div>
@@ -122,7 +122,7 @@
                     </div>
                 </div>
                 <div class="modal-body subCart">
-                    <p>Subtotal    : <?php echo $totalPrice; ?> </p>                
+                    <p class="subtotal">Subtotal    : <?php echo $totalPrice; ?> </p>                
                 </div>
                 <input type="submit" class="btn btn-block btnBook" name="submit" value="BOOK ORDER">
             </div>
@@ -148,6 +148,7 @@
 	}
 
     $(document).ready(function() {
+        var $time = 1;
         $('#theModal').modal({
             keyboard: false,
             show: false,
@@ -155,17 +156,24 @@
         });
         $('#cartModal').click(function() {
             $('#theModal').modal('show');
+        });
+        $('.input-number-increment').click(function() {
+            var $input = $(this).parents('.input-number-group').find('.input-number');
+            var val = parseInt($input.val(), 10);
+            $time += 1;
+            $(".duration").text($time + " days");
+            $(".subtotal").text("Subtotal    : " + <?php echo $totalPrice?>*$time);
+            $input.val(val + 1);
+        });
+        $('.input-number-decrement').click(function() {
+            var $input = $(this).parents('.input-number-group').find('.input-number');
+            var val = parseInt($input.val(), 10);
+            $time -= 1;
+            $(".duration").text($time + " days");
+            $(".subtotal").text("Subtotal    : " + <?php echo $totalPrice?>*$time);
+            $input.val(val - 1);
         })
     });
 
-    $('.input-number-increment').click(function() {
-        var $input = $(this).parents('.input-number-group').find('.input-number');
-        var val = parseInt($input.val(), 10);
-        $input.val(val + 1);
-    });
-    $('.input-number-decrement').click(function() {
-        var $input = $(this).parents('.input-number-group').find('.input-number');
-        var val = parseInt($input.val(), 10);
-        $input.val(val - 1);
-    })
+    
 </script>
