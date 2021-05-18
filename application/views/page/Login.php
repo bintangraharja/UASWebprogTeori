@@ -40,11 +40,11 @@
 				<input type="text" name="captcha" value=""/>
 			</div>
 			
-			<input type="submit" name="submit" class="btn btn-block btnReglog mid" value="SIGN IN"></button>
+			<input type="submit" name="submit" class="btn btn-block btnReglog mid" value="SIGN IN">
 		</form>
 		<br><br>
 		<div class="mid">
-			<a href="<?php echo site_url('SignUp'); ?>">Don't have an account? <button type="button" class="btn btnAcc">Create New Account</button></a>
+			<a href="<?php echo site_url('SignUp'); ?>">Don't have an account? <input type="submit" class="btn btnAcc" value="Create New Account"></a>
 		</div>
 		<br><br>
 	</div>

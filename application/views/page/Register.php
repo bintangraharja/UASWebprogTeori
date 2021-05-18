@@ -51,7 +51,7 @@
 		</form>
 		<br><br>
 		<div class="mid">
-			<a href="<?php echo site_url('Login');?>">Already have an account? <button type="button" class="btn btnAcc">Sign In</button></a>
+			<a href="<?php echo site_url('Login');?>">Already have an account? <input type="submit" class="btn btnAcc" value="Sign In"></a>
 		</div>
 		<br><br>
 	</div>

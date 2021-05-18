@@ -147,9 +147,11 @@ nav ul, nav li {
 
 /* style home */
 .home {
-  background-size: 100%; 
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-size: cover; 
+  background-position: center;
+  height: 100%;
 }
 .card-title {
   color: white;
