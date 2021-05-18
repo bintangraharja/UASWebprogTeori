@@ -19,7 +19,7 @@ class SignUp extends CI_Controller
                     'Fname' => $this->input->post('fname'),
                     'Lname' => $this->input->post('lname'),
                     'Email' => $this->input->post('email'),
-                    'Password' => $this->input->post('password'),
+                    'Password' => md5($this->input->post('password')),
                     'Address' => $this->input->post('address'),
                     'Number' => $this->input->post('phone')
                 );

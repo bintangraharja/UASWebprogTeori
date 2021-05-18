@@ -31,7 +31,7 @@
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Password</label>
 				<div class="col-sm-10">
-					<input type="password" id="password" class="form-control" placeholder="********" required>
+					<input name="password" type="password" id="password" class="form-control" placeholder="********" required>
 				</div>
 			</div>
 			<div class="form-group row">
@@ -40,7 +40,7 @@
 				<input type="text" name="captcha" value=""/>
 			</div>
 			
-			<input type="submit" name="submit" class="btn btn-block btnReglog mid">SIGN IN</button>
+			<input type="submit" name="submit" class="btn btn-block btnReglog mid" value="SIGN IN"></button>
 		</form>
 		<br><br>
 		<div class="mid">

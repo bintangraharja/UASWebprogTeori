@@ -6,17 +6,37 @@ class Login extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('');
+        $this->load->model('Account');
     }
 
     public function index()
     {
         if ($this->input->post('submit')) {
-            print_r("test");exit;
             $captcha_insert = $this->input->post('captcha');
             $contain_sess_captcha = $this->session->userdata('valuecaptchaCode');
             if ($captcha_insert === $contain_sess_captcha) {
-                print_r('Success');exit;
+                $email = $this->input->post('email');
+                $password = $this->input->post('password');
+                $where = array(
+                    'email' => $email,
+                    'password' => md5($password)
+                );
+                $cek = $this->Account->login("account",$where);
+                if($cek > 0){
+                    $akun = $this->Account->getakun($email, $password);
+                    
+                    $data_session = array(
+                        'name' => $akun['FName'] ,
+                        'status' => "login"
+                    );
+                $this->session->set_userdata($data_session);
+                if($akun['FName'] == "Admin"){
+                    redirect('home/admin');
+                }else{
+                    redirect('home');
+                }
+                }
+            
             } else {
                 echo 'Failure';exit;
             }
@@ -54,5 +74,10 @@ class Login extends CI_Controller
         $this->session->set_userdata('valuecaptchaCode', $captcha['word']);
         echo $captcha['image'];
     }
+    public function logout(){
+        $this->session->sess_destroy();
+        redirect();
+    }
+    
 }
 ?>

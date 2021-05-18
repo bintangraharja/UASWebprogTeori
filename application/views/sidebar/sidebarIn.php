@@ -1,12 +1,12 @@
 <body>
 	<nav class="main-menu">
         <ul>
-        	<li>
+            <li>
                 <div class="fa">
-                    <img src="./Gallery/LogoPotrait.png" width="60" height="60">
+                    <img src="<?php echo base_url().'assets/LogoPotrait.png'?>" width="60" height="60">
                 </div>
                 <span class="nav-text">
-                    <img src="./Gallery/LogoLandscape.png" width="150" height="60">
+                <img src="<?php echo base_url().'assets/LogoLandscape.png'?>" width="150" height="60">
                 </span>
             </li>
             <li class="has-subnav">
@@ -46,11 +46,11 @@
             <li>
                 <i class="fa fa-user fa-2x"></i>
                 <span class="nav-text">
-                    Welcome, FerLay
+                    Welcome, <?php echo $this->session->userdata('name');?>
                 </span>
             </li>
             <li>
-               <a href="HomePage.php">
+               <a href="<?php echo site_url('Login/logout');?>">
                     <i class="fa fa-sign-out fa-2x"></i>
                     <span class="nav-text">
                         LogOut

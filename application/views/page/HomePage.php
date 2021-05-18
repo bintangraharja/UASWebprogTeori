@@ -7,12 +7,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<title>Rental UAS IF430 - Gaming Buddy</title>
 	<?php 
 		echo $style;
-		echo $sidebar;
 	?>
 </head>
 <body class="home" style= "background-image: url('<?php base_url('')?>assets/Background/HomeBG.jpg');">
 	<div class="container">
 		<br><br><br>
+		<?php echo $sidebar; ?>
 			<h1 class="headTitle">Our Console</h1>
 		<br><br><br>
 		<?php 

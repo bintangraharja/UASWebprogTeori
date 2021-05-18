@@ -4,10 +4,9 @@
 <head>
 	<title>Rental UAS IF430 - Gaming Buddy</title>
 	<?php echo $style; ?>
-	<?php echo $sidebar; ?>
 </head>
 <body class="home" style= "background-image: url('<?php base_url('')?>assets/Background/HomeBG.jpg');">
-	
+<?php echo $sidebar; ?>
 	<br><br><br><br>
 	<div class="container bg-form">
 		<h2 class="headTitle">Create New Account</h2>
