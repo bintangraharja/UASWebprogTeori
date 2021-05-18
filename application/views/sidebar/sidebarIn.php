@@ -18,7 +18,7 @@
                 </a> 
             </li>
             <li>
-                <a href="HomePage.php">
+                <a href="<?php echo site_url('home');?>">
                     <i class="fa fa-home fa-2x"></i>
                     <span class="nav-text">
                         Home
@@ -83,6 +83,24 @@
                                 <th> Price </th>
                                 <th> </th>
                             </tr>
+                            <?php
+                                $totalPrice = 0;
+                                foreach($orders as $temp){
+                                    $ConsoleId = $temp['ConsoleID'];
+                                    $ConsoleName = $temp['ConsoleName'];
+                                    $Price = $temp['Price'];
+                                    
+                            ?>
+                            <tr>
+                                <td><img class="card-img-top" style="width: 100%" src="<?php echo site_url('home/showImg/').$ConsoleId ?>"></td>
+                                <td><?php echo $ConsoleName; ?> </td>
+                                <td> 1 days </td>
+                                <td><?php echo $Price; ?> </td>
+                            </tr>
+                            <?php
+                            $totalPrice = $totalPrice + $Price;
+                                }
+                            ?>
                         </thead>
                     </table>
                 </div>
@@ -93,7 +111,7 @@
                     </div>
                 </div>
                 <div class="modal-body modalCart">
-                    <p>Subtotal    : </p>                
+                    <p>Subtotal    : <?php echo $totalPrice; ?> </p>                
                 </div>
                 <input type="submit" class="btn btn-block btnBook" value="BOOK ORDER">
             </div>

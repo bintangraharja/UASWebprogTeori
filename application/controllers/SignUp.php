@@ -31,9 +31,5 @@ class SignUp extends CI_Controller
         $data['sidebar'] = $this->load->view('sidebar/sidebar.php', $data, TRUE);
         $this->load->view('page/Register',$data);
     }
-    public function regis_action(){
-       
-        
-    }
 }
 ?>

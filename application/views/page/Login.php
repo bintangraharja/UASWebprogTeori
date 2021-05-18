@@ -21,7 +21,7 @@
 	<div class="container bg-form">
 		<h2 class="headTitle">Sign In</h2>
 		<br>
-		<form method="post">
+		<form action="<?php echo site_url('Login') ?>" method="post">
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Email</label>
 				<div class="col-sm-10">
@@ -37,7 +37,14 @@
 			<div class="form-group row">
 				<p id="image_captcha"><?php echo $captchaImg; ?></p>
 				<a href="javascript:void(0);" class="captcha-refresh" >TEST<img src=""/></a>
-				<input type="text" name="captcha" value=""/>
+				<input type="text" name="captcha" value="<?php echo $this->session->userdata('valuecaptchaCode'); ?>"/>
+			</div>
+			<div>
+	   			<p style="color:red;"> <?php 
+				 	if(isset($failInfo)){
+						echo $failInfo; 
+					 }
+				?> </p>
 			</div>
 			
 			<input type="submit" name="submit" class="btn btn-block btnReglog mid" value="SIGN IN">
