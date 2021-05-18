@@ -14,7 +14,7 @@ Class Detail_model extends CI_Model{
     }
     function check_product($id, $userid){
         $query = $this->db->query("Select * From temporder Where ConsoleID ='$id' AND UserID = '$userid'");
-        if($query->num_rows() == 0){
+        if($query->num_rows() == 1){
             return 'true';
         }else{
             return 'false';

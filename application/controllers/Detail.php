@@ -32,8 +32,7 @@ class Detail extends CI_Controller
             }else{
             $data['sidebar'] = $this->load->view('sidebar/sidebarIn.php', $data, TRUE);
             }
-        $data['bought'] = $this->detail_model->check_product($id, $this->session->userdata('UserID'));    
-        print_r($data['bought']);exit;
+        $data['bought'] = $this->detail_model->check_product($id, $this->session->userdata('userID'));    
         $this->load->view('page/DetailConsole.php',$data);
     }
     
