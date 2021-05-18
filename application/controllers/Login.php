@@ -6,12 +6,8 @@ class Login extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-<<<<<<< HEAD
         $this->load->model('Account');
         $this->load->helper("file");
-=======
-        $this->load->model('');
->>>>>>> aa67dd5 (test)
     }
 
     public function index()
@@ -21,36 +17,7 @@ class Login extends CI_Controller
             $captcha_insert = $this->input->post('captcha');
             $contain_sess_captcha = $this->session->userdata('valuecaptchaCode');
             if ($captcha_insert === $contain_sess_captcha) {
-<<<<<<< HEAD
-                $email = $this->input->post('email');
-                $password = md5($this->input->post('password'));
-                // $where = array(
-                //     'Email' => $email,
-                //     'Password' => md5($password)
-                // );
-                $cek = $this->Account->login($email,$password);
-                if($cek > 0){
-                    delete_files("image_for_captcha");
-                    $akun = $this->Account->getakun($email, $password);
-                    
-                    $data_session = array(
-                        'name' => $akun['FName'] ,
-                        'status' => "login"
-                    );
-                    $this->session->set_userdata($data_session);
-                    if($akun['FName'] == "Admin"){
-                        redirect('home/admin');
-                    }else{
-                        redirect('home');
-                    }
-                }else{
-                    $this->session->sess_destroy();
-                    $data['failInfo'] = "Email/Password are wrong";
-                }
-            
-=======
                 print_r('Success');exit;
->>>>>>> aa67dd5 (test)
             } else {
                 $data['failInfo'] = "Captcha didn't match!";
             }
@@ -88,12 +55,5 @@ class Login extends CI_Controller
         $this->session->set_userdata('valuecaptchaCode', $captcha['word']);
         echo $captcha['image'];
     }
-<<<<<<< HEAD
-    public function logout(){
-        $this->session->sess_destroy();
-        redirect();
-    }
-=======
->>>>>>> aa67dd5 (test)
 }
 ?>

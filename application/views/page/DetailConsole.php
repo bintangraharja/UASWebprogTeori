@@ -28,8 +28,8 @@
 			<p><?php echo $desc; ?></p>
 			<p>Ready Stock &nbsp;: <?php echo $qty; ?> </p>
 			<p>Rent Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: Rp <?php echo $price ?>,- /day</p>
-			<form  method="post">
-			<input name="submit" class="btn btnBook" value="Add to Cart"></input>
+			<form method="post">
+			<input name="submit" type="submit" class="btn btnBook" value="Add to Cart"></input>
 			</form>
 		</div>
 	</div>

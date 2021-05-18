@@ -9,6 +9,9 @@ class Detail extends CI_Controller
         $this->load->model('detail_model');
     }
     function _remap($id){
+        if($this->input->post('submit')){
+            redirect('home');
+        }
         $this->index($id);
     }
 
