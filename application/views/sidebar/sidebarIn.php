@@ -67,7 +67,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-resize-small"></span></button>
-                    <h4>*User's Name* Cart</h4>
+                    <h4><?php echo $this->session->userdata('name');?>'s Cart</h4>
                 </div>
                 <div class="modal-body">
                     <table id="tables" class="table table-striped table-border dataTable" style="width: 100%">
