@@ -6,16 +6,22 @@ class Login extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+<<<<<<< HEAD
         $this->load->model('Account');
         $this->load->helper("file");
+=======
+        $this->load->model('');
+>>>>>>> aa67dd5 (test)
     }
 
     public function index()
     {
         if ($this->input->post('submit')) {
+            print_r("test");exit;
             $captcha_insert = $this->input->post('captcha');
             $contain_sess_captcha = $this->session->userdata('valuecaptchaCode');
             if ($captcha_insert === $contain_sess_captcha) {
+<<<<<<< HEAD
                 $email = $this->input->post('email');
                 $password = md5($this->input->post('password'));
                 // $where = array(
@@ -42,6 +48,9 @@ class Login extends CI_Controller
                     $data['failInfo'] = "Email/Password are wrong";
                 }
             
+=======
+                print_r('Success');exit;
+>>>>>>> aa67dd5 (test)
             } else {
                 $data['failInfo'] = "Captcha didn't match!";
             }
@@ -79,9 +88,12 @@ class Login extends CI_Controller
         $this->session->set_userdata('valuecaptchaCode', $captcha['word']);
         echo $captcha['image'];
     }
+<<<<<<< HEAD
     public function logout(){
         $this->session->sess_destroy();
         redirect();
     }
+=======
+>>>>>>> aa67dd5 (test)
 }
 ?>
