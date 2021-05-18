@@ -25,8 +25,7 @@ Class Detail_model extends CI_Model{
         $query = $this->db->query("SELECT temporder.ConsoleID, temporder.UserID, menu.ConsoleName, menu.Price
         FROM temporder
         LEFT OUTER JOIN menu ON menu.ConsoleID = temporder.ConsoleID
-        WHERE temporder.UserID = '2'
-        GROUP BY temporder.UserID");
+        WHERE temporder.UserID = '$userid'");
         return $query->result_array();
     }
 }

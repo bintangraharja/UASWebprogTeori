@@ -30,6 +30,7 @@ class Detail extends CI_Controller
         if($this->session->userdata('status') != 'login'){
             $data['sidebar'] = $this->load->view('sidebar/sidebar.php', $data, TRUE);
             }else{
+            $data['orders'] = $this->detail_model->get_temp($this->session->userdata('userID'));
             $data['sidebar'] = $this->load->view('sidebar/sidebarIn.php', $data, TRUE);
             }
         $data['bought'] = $this->detail_model->check_product($id, $this->session->userdata('userID'));    

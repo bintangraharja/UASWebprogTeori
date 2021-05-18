@@ -80,8 +80,21 @@
                                 <th> </th>
                             </tr>
                             <?php
+                                $totalPrice = 0;
                                 foreach($orders as $temp){
-                                    $Console
+                                    $ConsoleId = $temp['ConsoleID'];
+                                    $ConsoleName = $temp['ConsoleName'];
+                                    $Price = $temp['Price'];
+                                    
+                            ?>
+                            <tr>
+                                <td><img class="card-img-top" style="width: 100%" src="<?php echo site_url('home/showImg/').$ConsoleId ?>"></td>
+                                <td><?php echo $ConsoleName; ?> </td>
+                                <td> 1 days </td>
+                                <td><?php echo $Price; ?> </td>
+                            </tr>
+                            <?php
+                            $totalPrice = $totalPrice + $Price;
                                 }
                             ?>
                         </thead>
@@ -94,7 +107,7 @@
                     </div>
                 </div>
                 <div class="modal-body modalCart">
-                    <p>Subtotal    : </p>                
+                    <p>Subtotal    : <?php echo $totalPrice; ?> </p>                
                 </div>
                 <button class="btn btn-block btnBook">BOOK ORDER</button>
             </div>
