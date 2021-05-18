@@ -18,10 +18,7 @@ class Login extends CI_Controller
             if ($captcha_insert === $contain_sess_captcha) {
                 $email = $this->input->post('email');
                 $password = md5($this->input->post('password'));
-                // $where = array(
-                //     'Email' => $email,
-                //     'Password' => md5($password)
-                // );
+        
                 $cek = $this->Account->login($email,$password);
                 if($cek > 0){
                     delete_files("image_for_captcha");
@@ -29,6 +26,7 @@ class Login extends CI_Controller
                     
                     $data_session = array(
                         'name' => $akun['FName'] ,
+                        'userID' =>$akun['UserID'],
                         'status' => "login"
                     );
                     $this->session->set_userdata($data_session);

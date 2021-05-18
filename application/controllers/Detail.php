@@ -10,9 +10,17 @@ class Detail extends CI_Controller
     }
     function _remap($id){
         if($this->input->post('submit')){
-            redirect('home');
-        }
+            $consoleID = $id;
+            
+            $value = array(
+                'ConsoleID' => $consoleID,
+                'UserID'=> $this->session->userdata('userID') 
+            );
+            $this->detail_model->add_temp($value);
+            $this->index($id);
+        }else{
         $this->index($id);
+        }
     }
 
     public function index($id){
@@ -24,6 +32,8 @@ class Detail extends CI_Controller
             }else{
             $data['sidebar'] = $this->load->view('sidebar/sidebarIn.php', $data, TRUE);
             }
+        $data['bought'] = $this->detail_model->check_product($id, $this->session->userdata('UserID'));    
+        print_r($data['bought']);exit;
         $this->load->view('page/DetailConsole.php',$data);
     }
     
