@@ -15,8 +15,9 @@
        });
    </script>
 </head>
-<body class="home" >
+<body class="home" style= "background-image: url('<?php base_url('')?>assets/Background/HomeBG.jpg');">
 	<br><br><br><br>
+	<?php echo $sidebar; ?>
 	<div class="container bg-form">
 		<h2 class="headTitle">Sign In</h2>
 		<br>

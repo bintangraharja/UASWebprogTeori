@@ -12,7 +12,7 @@
 	<div class="container bg-form">
 		<h2 class="headTitle">Create New Account</h2>
 		<br>
-		<form action="">
+		<?php echo form_open('SignUp'); ?>
 			<div class="form-row">
 				<div class="form-group col-md-6">
 					<input type="text" name="fname" id="Fname" class="form-control" placeholder="First Name" required>
@@ -42,13 +42,13 @@
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Password</label>
 				<div class="col-sm-10">
-					<input type="password" id="password" class="form-control" placeholder="********" required>
+					<input name="password" type="password" id="password" class="form-control" placeholder="********" required>
 					<small class="text-muted">
-						Must be 8-20 characters long.
+						<?php echo form_error('password'); ?>
 					</small>
 				</div>
 			</div>
-			<button type="submit" class="btn btn-block btnReglog mid">CREATE NOW</button>
+			<input name="submit" type="submit" class="btn btn-block btnReglog mid" value="CREATE NOW"></input>
 		</form>
 		<br><br>
 		<div class="mid">
