@@ -1,13 +1,11 @@
-<?php 
-	include_once('sidebarAdmin.php');
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Rental UAS IF430 - Gaming Buddy</title>
+	<?php echo $style;?>
 </head>
-<body class="admin">
+<body class="home" style= "background-image: url('<?php base_url('')?>assets/Background/HomeBG.jpg');">
+	<?php echo $sidebar;?>
 	<div class="container">
 		<div class="container-fluid">
 		<br><br><br>
@@ -27,16 +25,23 @@
 				<th> Description </th>
 				<th> Action </th>
 			</tr>
-				<!-- <?php 
+				<?php 
+					foreach($product as $row){
+					$ConsoleID = $row['ConsoleID'];
+					$ConsoleName = $row['ConsoleName'];
+					$Price =$row['Price'];
+					$Qty = $row['Qty'];
+					$Desc = $row['Description'];
 					
-				?> -->
+				?>
 			<tr>
-				<td><img src="./Gallery/C0001.jpg" style="width: 135px; height: 90px;"></td>
-				<td> C0001 </td>
-				<td> PlayStation 1 </td>
-				<td> Rp2.900,- </td>
-				<td> 3 </td>
-				<td> Konsol video game yang dikembangkan oleh Sony Computer Entertainment yang dirilis pada 3 Desember 1994. Konsol ini memungkinkan untuk menampilkan video full motion dengan kualitas lebih tinggi daripada konsol lain pada generasinya. </td>
+				<td>
+				<img style="width: 135px; height: 90px;" src="<?php echo site_url('home/showImg/').$ConsoleID ?>"></td>
+				<td> <?php echo $ConsoleID; ?></td>
+				<td> <?php echo $ConsoleName; ?></td>
+				<td> Rp<?php echo $Price; ?>,- </td>
+				<td> <?php echo $Qty; ?> </td>
+				<td> <?php echo $Desc; ?></td>
 				<td> 
 					<a class='editMenu'>
 						<span class="glyphicon glyphicon-wrench"></span>
@@ -46,60 +51,7 @@
 					</a>
 				</td>
 			</tr>
-			<tr>
-				<td> </td>
-				<td> C0001 </td>
-				<td> PlayStation 1 </td>
-				<td> Rp2.900,- </td>
-				<td> 3 </td>
-				<td> Konsol video game yang dikembangkan oleh Sony Computer Entertainment yang dirilis pada 3 Desember 1994. Konsol ini memungkinkan untuk menampilkan video full motion dengan kualitas lebih tinggi daripada konsol lain pada generasinya. </td>
-				<td> </td>
-			</tr>
-			<tr>
-				<td> </td>
-				<td> C0001 </td>
-				<td> PlayStation 1 </td>
-				<td> Rp 2.900,- </td>
-				<td> 3 </td>
-				<td> Konsol video game yang dikembangkan oleh Sony Computer Entertainment yang dirilis pada 3 Desember 1994. Konsol ini memungkinkan untuk menampilkan video full motion dengan kualitas lebih tinggi daripada konsol lain pada generasinya. </td>
-				<td> </td>
-			</tr>
-			<tr>
-				<td> </td>
-				<td> C0001 </td>
-				<td> PlayStation 1 </td>
-				<td> Rp 2.900,- </td>
-				<td> 3 </td>
-				<td> Konsol video game yang dikembangkan oleh Sony Computer Entertainment yang dirilis pada 3 Desember 1994. Konsol ini memungkinkan untuk menampilkan video full motion dengan kualitas lebih tinggi daripada konsol lain pada generasinya. </td>
-				<td> </td>
-			</tr>
-			<tr>
-				<td> </td>
-				<td> C0001 </td>
-				<td> PlayStation 1 </td>
-				<td> Rp 2.900,- </td>
-				<td> 3 </td>
-				<td> Konsol video game yang dikembangkan oleh Sony Computer Entertainment yang dirilis pada 3 Desember 1994. Konsol ini memungkinkan untuk menampilkan video full motion dengan kualitas lebih tinggi daripada konsol lain pada generasinya. </td>
-				<td> </td>
-			</tr>
-			<tr>
-				<td> </td>
-				<td> C0001 </td>
-				<td> PlayStation 1 </td>
-				<td> Rp 2.900,- </td>
-				<td> 3 </td>
-				<td> Konsol video game yang dikembangkan oleh Sony Computer Entertainment yang dirilis pada 3 Desember 1994. Konsol ini memungkinkan untuk menampilkan video full motion dengan kualitas lebih tinggi daripada konsol lain pada generasinya. </td>
-				<td> </td>
-			</tr>
-			<tr>
-				<td> </td>
-				<td> C0001 </td>
-				<td> PlayStation 1 </td>
-				<td> Rp 2.900,- </td>
-				<td> 3 </td>
-				<td> Konsol video game yang dikembangkan oleh Sony Computer Entertainment yang dirilis pada 3 Desember 1994. Konsol ini memungkinkan untuk menampilkan video full motion dengan kualitas lebih tinggi daripada konsol lain pada generasinya. </td>
-				<td> </td>
-			</tr>
+			<?php } ?>
 		</table>
 	</div>
 	</div>

@@ -38,6 +38,35 @@ Class Account extends CI_Model{
         }
         $this->db->delete('temporder',['UserID' => $id]);
     }
+    public function get_order($id){
+        $query = $this->db->query(
+        "SELECT orders.OrderID, orders.Duration, orders.TotalPrice, orders.Status, details.ConsoleID, menu.ConsoleName  
+        FROM orders LEFT OUTER JOIN details ON details.OrderID = orders.OrderID
+                    LEFT OUTER JOIN menu ON menu.ConsoleID = details.ConsoleID
+                    WHERE orders.UserID = '$id' 
+                    GROUP BY orders.OrderID");
+        return $query->result_array();
+    }
+    public function rdy_to_pick($orderId){
+        $this->db->query("UPDATE `orders` SET `Status`='Siap di Pick-Up' WHERE OrderID = '$orderId'");
+    }
+    public function get_det($id){
+        $query = $this->db->query(
+        "SELECT   menu.ConsoleID, menu.ConsoleName, orders.Duration
+        From details 
+        JOIN menu ON menu.ConsoleID = details.ConsoleID
+        JOIN orders ON orders.OrderID = details.OrderID
+        WHERE details.OrderID = '$id'");
+        return $query->result_array();
+    }
+    public function get_stts($id){
+        $query = $this->db->query("Select Status From orders WHERE OrderID ='$id' ");
+        foreach($query->result_array() as $stts){
+            $status = $stts['Status'];
+        }
+        return $status;
+    }
 }
+
 
 ?>

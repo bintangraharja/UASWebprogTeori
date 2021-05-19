@@ -34,7 +34,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="<?php echo site_url('OrderList');?>">
                     <i class="fa fa-list-alt fa-2x"></i>
                     <span class="nav-text">
                         Order List
@@ -82,6 +82,15 @@
                             <?php
                                 $totalPrice = 0;
                                 $x = -1;
+                                if($orders == NULL){
+                                ?>
+                                
+                                    <p style="color:red;">Your Cart is Empty, Please Add Some Item </p>
+                                
+                                <?php
+                                }else{
+
+                                
                                 foreach($orders as $temp){
                                     $x++;
                                     $ConsoleId = $temp['ConsoleID'];
@@ -104,6 +113,7 @@
                             <?php
                             $totalPrice = $totalPrice + $Price;
                                 }
+                            }
                             ?>
                         </thead>
                     </table>
