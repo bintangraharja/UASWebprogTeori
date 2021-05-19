@@ -36,6 +36,7 @@ class Detail extends CI_Controller
         $data['bought'] = $this->detail_model->check_product($id, $this->session->userdata('userID'));    
         $this->load->view('page/DetailConsole.php',$data);
     }
+
     
 }
 ?>
