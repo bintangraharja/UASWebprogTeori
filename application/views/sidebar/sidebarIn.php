@@ -196,6 +196,10 @@
             var $input = $(this).parents('.input-number-group').find('.input-number');
             var val = parseInt($input.val(), 10);
             $time -= 1;
+            if($time < 1) {
+                $time = 1;
+                val = 2;
+            }
             $(".duration").text($time + " days");
             $(".subtotal").text("Subtotal    : " + <?php echo $totalPrice?>*$time);
             for(i = 0; i <= <?php echo $x?>; i++){
