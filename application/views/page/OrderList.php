@@ -1,74 +1,69 @@
-<?php 
-	include_once('sidebarIn.php');
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Rental UAS IF430 - Gaming Buddy</title>
+	<?php echo $style;?>
 </head>
-<body class="home">
+<body class="home" style= "background-image: url('<?php base_url('')?>assets/Background/HomeBG.jpg');">
 	<div class="container">
+		<?php echo $sidebar; ?>
 		<br><br><br>
-		<h1 class="headTitle">User's Order</h1>
+		<h1 class="headTitle"><?php echo $this->session->userdata('name');?>'s Order</h1>
 		<br>
-		<a href="HomePage.php"><input type="submit" class="btn btnBack" value="Back"></a>
+		<a href="<?php echo site_url('home');?>"><input type="submit" class="btn btnBack" value="Back"></a>
 		<br><br>
+		<?php 
+		if($order == NULL){
+		?>
+		<h1>You Didn't Order Anything</h1>
+		<?php
+		}else{
+		foreach($order as $row ){
+			$orderId = $row['OrderID'];
+			$status = $row['Status'];
+			$consolID = $row['ConsoleID'];
+			$consolName = $row['ConsoleName'];
+			$duration = $row['Duration'];
+		?>
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-9">
-					<h4>ORDER ID : <!-- baca database --> </h4>
+					<h4>ORDER ID :<?php echo $orderId;?> </h4>
 				</div>
 				<div class="col-sm-3" style="text-align: right;">
-					<input type="submit" class="btn btnBook" value="Ready to Pick-Up">
+					<?php 
+					if($status == "Sudah Dikirim"){ ?>
+						<a href="<?php echo site_url('OrderList/update/').$orderId;?>" ><input type="submit" class="btn btnBook" value="Ready to Pick-Up"></a>
+					<?php }else{ ?>
+						<input type="submit" class="btn btnBook" value="Ready to Pick-Up" disabled>
+					<?php } ?>
+					
 				</div>
 			</div>
+
 			<div class="row" style="text-align: center;">
 				<div class="col-sm-3">
-					<img src="./Gallery/C1002.jpg" style="width: 100%;">
+					<img class="card-img-top" style="width: 100%" src="<?php echo site_url('home/showImg/').$consolID ?>">
 				</div>
 				<div class="col-sm-4">
-					<h3>Nintendo DS Lite</h3>
-					<p>Duration : 3 Days</p>
+					<h3><?php echo $consolName; ?></h3>
+					<p>Duration : <?php echo $duration;?> Days</p>
 				</div>
 				<div class="col-sm-2">
-					<a href="OrderDetails.php">
+					<a href="<?php echo site_url('OrderDetail').'/'.$orderId;?>">
 						<h4 class="mid">View Details <span class="glyphicon glyphicon-chevron-down"></span></h4>
 					</a>
 				</div>
 				<div class="col-sm-3">
-					<h4>Status : Sudah Dikirim</h4>
+					<h4>Status : <?php echo $status;?></h4>
 				</div>
 			</div>
 		</div>
 		<hr style="border-color: #FFBB0E;">
-		<div class="container">
-			<div class="row">
-			<div class="col-sm-9">
-				<h4>ORDER ID : <!-- baca database --> </h4>
-			</div>
-			<div class="col-sm-3" style="text-align: right;">
-				<input type="submit" class="btn btnBook" value="Ready to Pick-Up">
-			</div>
-		</div>
-		<div class="row" style="text-align: center;">
-					<div class="col-sm-3">
-						<img src="./Gallery/C1002.jpg" style="width: 100%;">
-					</div>
-					<div class="col-sm-4">
-						<h3>Nintendo DS Lite</h3>
-						<p>Duration : 5 Days</p>
-					</div>
-					<div class="col-sm-2">
-						<a href="OrderDetails.php">
-							<h4 class="mid">View Details <span class="glyphicon glyphicon-chevron-down"></span></h4>
-						</a>
-					</div>
-					<div class="col-sm-3">
-						<h4>Status : Sudah Dikirim</h4>
-					</div>
-				</div>
-		</div>
+		<?php
+		}
+	}
+		?>
 	</div>
 </body>
 </html>

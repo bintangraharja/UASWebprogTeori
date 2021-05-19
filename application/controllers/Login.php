@@ -30,9 +30,9 @@ class Login extends CI_Controller
                         'status' => "login"
                     );
                     $this->session->set_userdata($data_session);
-                    if($akun['FName'] == "Admin"){
+                    if($akun['userID'] == "1"){
                         delete_files("image_for_captcha");
-                        redirect('home/admin');
+                        redirect('home');
                     }else{
                         delete_files("image_for_captcha");
                         redirect('home');
