@@ -23,21 +23,29 @@
 		<br>
 		<form action="<?php echo site_url('Login') ?>" method="post">
 			<div class="form-group row">
-				<label class="col-sm-2 col-form-label">Email</label>
+				<label class="col-sm-2">Email</label>
 				<div class="col-sm-10">
 					<input type="email" name="email" id="Email" class="form-control" placeholder="example@gmail.com" required>
 				</div>
 			</div>
 			<div class="form-group row">
-				<label class="col-sm-2 col-form-label">Password</label>
+				<label class="col-sm-2">Password</label>
 				<div class="col-sm-10">
 					<input name="password" type="password" id="password" class="form-control" placeholder="********" required>
 				</div>
 			</div>
 			<div class="form-group row">
-				<p id="image_captcha"><?php echo $captchaImg; ?></p>
-				<a href="javascript:void(0);" class="captcha-refresh" ><button class="btn btn-primary"><span class="glyphicon glyphicon-refresh"></span></button></a>
-				<input type="text" name="captcha" />
+				<div class="col-sm-2">
+					<label>Captcha</label>
+				</div>
+				<div class="col-sm-10">
+					<p id="image_captcha">
+						<?php echo $captchaImg; ?>
+						<a href="javascript:void(0);"><button class="btn" style="background-color: #858585; color: white;"><span class="glyphicon glyphicon-refresh"></span></button></a>
+					</p>
+					<input type="text" name="captcha" />
+				</div>
+				
 			</div>
 			<div>
 	   			<p style="color:red;"> <?php 
