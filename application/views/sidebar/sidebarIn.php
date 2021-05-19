@@ -70,7 +70,7 @@
                     <h4><?php echo $this->session->userdata('name');?>'s Cart</h4>
                 </div>
                 <div class="modal-body">
-                    <table id="tables" class="table table-striped table-border dataTable" style="width: 100%">
+                    <table id="tables" class="table table-striped table-border dataTable cartBody" style="width: 100%">
                         <thead class="cartHead">
                             <tr>
                                 <th> Image </th>

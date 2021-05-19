@@ -36,7 +36,7 @@
 			</div>
 			<div class="form-group row">
 				<p id="image_captcha"><?php echo $captchaImg; ?></p>
-				<a href="javascript:void(0);" class="captcha-refresh" >TEST<img src=""/></a>
+				<a href="javascript:void(0);" class="captcha-refresh" ><button class="btn btn-primary"><span class="glyphicon glyphicon-refresh"></span></button></a>
 				<input type="text" name="captcha" value="<?php echo $this->session->userdata('valuecaptchaCode'); ?>"/>
 			</div>
 			<div>
