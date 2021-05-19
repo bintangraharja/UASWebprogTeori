@@ -21,7 +21,7 @@ Class Account extends CI_Model{
             'UserID' => $id,
             'Duration' => $durasi,
             'TotalPrice' => $total,
-            'Status' => 'Sedang Dikirim'
+            'Status' => 'On Delivery'
         );
         $this->db->insert("orders",$values);
         $orderID = $this->db->insert_id();
@@ -48,7 +48,7 @@ Class Account extends CI_Model{
         return $query->result_array();
     }
     public function rdy_to_pick($orderId){
-        $this->db->query("UPDATE `orders` SET `Status`='Siap di Pick-Up' WHERE OrderID = '$orderId'");
+        $this->db->query("UPDATE `orders` SET `Status`='Ready to Pick-Up' WHERE OrderID = '$orderId'");
     }
     public function get_det($id){
         $query = $this->db->query(

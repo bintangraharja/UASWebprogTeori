@@ -17,7 +17,7 @@
 				<h4>ORDER ID : <?php echo $Oid;?></h4>
 			</div>
 			<div class="col-sm-3" style="text-align: right;">
-					<?php if($Status == "Sudah Dikirim"){ ?>
+					<?php if($Status == "Has Been Sent"){ ?>
 						<a href="<?php echo site_url('OrderList/update/').$Oid;?>" ><input type="submit" class="btn btnBook" value="Ready to Pick-Up"></a>
 					<?php }else{ ?>
 						<input type="submit" class="btn btnBook" value="Ready to Pick-Up" disabled>
@@ -37,7 +37,7 @@
 				</div>
 				<div class="col-sm-6">
 					<h3><?php echo $ConsoleName;?></h3>
-					<p>Duration : <?php echo $Duration;?> Days</p>
+					<h4 style="color: #858585;">Duration : <?php echo $Duration;?> Days</h4>
 				</div>
 			</div>
 			<br>

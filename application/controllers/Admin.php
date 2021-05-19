@@ -18,5 +18,16 @@ class Admin extends CI_Controller
             'extPict' => $this->input->post('phone')
         );
     }
+    public function orderList(){
+        $data['style'] = $this->load->view('include/style.php', NULL, TRUE);
+        $data['sidebar'] = $this->load->view('sidebar/sidebarAdmin.php',NULL,TRUE);
+        $this->load->view('page/OrderListAdmin.php', $data);
+    }
+    public function editConsole(){
+        $id = $this->uri->segment(3);
+        $data['style'] = $this->load->view('include/style.php', NULL, TRUE);
+        $data['sidebar'] = $this->load->view('sidebar/sidebarAdmin.php',NULL,TRUE);
+        $this->load->view('page/EditConsoleAdmin.php', $data);
+    }
 }
 ?>

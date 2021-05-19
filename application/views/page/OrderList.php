@@ -32,7 +32,7 @@
 				</div>
 				<div class="col-sm-3" style="text-align: right;">
 					<?php 
-					if($status == "Sudah Dikirim"){ ?>
+					if($status == "Has Been Sent"){ ?>
 						<a href="<?php echo site_url('OrderList/update/').$orderId;?>" ><input type="submit" class="btn btnBook" value="Ready to Pick-Up"></a>
 					<?php }else{ ?>
 						<input type="submit" class="btn btnBook" value="Ready to Pick-Up" disabled>
@@ -47,16 +47,16 @@
 				</div>
 				<div class="col-sm-4">
 					<h3><?php echo $consolName; ?></h3>
-					<p>Duration : <?php echo $duration;?> Days</p>
+					<h4 style="color: #858585;">Duration : <?php echo $duration;?> Days</h4>
 				</div>
 				<div class="col-sm-2">
 					<a href="<?php echo site_url('OrderDetail').'/'.$orderId;?>">
 						<h4 class="mid">View Details <span class="glyphicon glyphicon-chevron-down"></span></h4>
 					</a>
 				</div>
-				<div class="col-sm-3">
-					<h4>Status : <?php echo $status;?></h4>
-				</div>
+			</div>
+			<div class="col-sm-12" style="text-align: right;">
+				<h4>Status : <?php echo $status;?></h4>
 			</div>
 		</div>
 		<hr style="border-color: #FFBB0E;">

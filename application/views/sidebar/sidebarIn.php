@@ -83,11 +83,11 @@
                                 $totalPrice = 0;
                                 $x = -1;
                                 if($orders == NULL){
-                                ?>
+                            ?>
                                 
                                     <p style="color:red;">Your Cart is Empty, Please Add Some Item </p>
                                 
-                                <?php
+                            <?php
                                 }else{
 
                                 

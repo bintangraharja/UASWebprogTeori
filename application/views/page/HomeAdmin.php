@@ -4,7 +4,7 @@
 	<title>Rental UAS IF430 - Gaming Buddy</title>
 	<?php echo $style;?>
 </head>
-<body class="home" style= "background-image: url('<?php base_url('')?>assets/Background/HomeBG.jpg');">
+<body class="admin" style= "background-image: url('<?php base_url('')?>assets/Background/AdminBG.png');">
 	<?php echo $sidebar;?>
 	<div class="container">
 		<div class="container-fluid">
@@ -16,42 +16,44 @@
 		</div>
 		<br>
 		<table id="tables" class="table table-striped table-border dataTable adminTable" style="width: 100%;">
-			<tr>
-				<th> Picture </th>
-				<th> Console ID </th>
-				<th> Console Name </th>
-				<th> Price </th>
-				<th> Qty </th>
-				<th> Description </th>
-				<th> Action </th>
-			</tr>
-				<?php 
-					foreach($product as $row){
-					$ConsoleID = $row['ConsoleID'];
-					$ConsoleName = $row['ConsoleName'];
-					$Price =$row['Price'];
-					$Qty = $row['Qty'];
-					$Desc = $row['Description'];
-					
-				?>
-			<tr>
-				<td>
-				<img style="width: 135px; height: 90px;" src="<?php echo site_url('home/showImg/').$ConsoleID ?>"></td>
-				<td> <?php echo $ConsoleID; ?></td>
-				<td> <?php echo $ConsoleName; ?></td>
-				<td> Rp<?php echo $Price; ?>,- </td>
-				<td> <?php echo $Qty; ?> </td>
-				<td> <?php echo $Desc; ?></td>
-				<td> 
-					<a class='editMenu'>
-						<span class="glyphicon glyphicon-wrench"></span>
-					</a>
-					<a class='deleteMenu'>
-						<span class="glyphicon glyphicon-trash"></span>
-					</a>
-				</td>
-			</tr>
-			<?php } ?>
+			<tbody>
+				<tr>
+					<th> Picture </th>
+					<th> Console ID </th>
+					<th> Console Name </th>
+					<th> Price </th>
+					<th> Qty </th>
+					<th> Description </th>
+					<th> Action </th>
+				</tr>
+					<?php 
+						foreach($product as $row){
+						$ConsoleID = $row['ConsoleID'];
+						$ConsoleName = $row['ConsoleName'];
+						$Price =$row['Price'];
+						$Qty = $row['Qty'];
+						$Desc = $row['Description'];
+						
+					?>
+				<tr>
+					<td>
+					<img style="width: 135px; height: 90px;" src="<?php echo site_url('home/showImg/').$ConsoleID ?>"></td>
+					<td> <?php echo $ConsoleID; ?></td>
+					<td> <?php echo $ConsoleName; ?></td>
+					<td> Rp<?php echo $Price; ?>,- </td>
+					<td> <?php echo $Qty; ?> </td>
+					<td> <?php echo $Desc; ?></td>
+					<td> 
+						<a class='editMenu' href="<?php echo site_url('admin/editConsole'); ?>">
+							<span class="glyphicon glyphicon-wrench"></span>
+						</a>
+						<a class='deleteMenu'>
+							<span class="glyphicon glyphicon-trash"></span>
+						</a>
+					</td>
+				</tr>
+				<?php } ?>
+						</tbody>
 		</table>
 	</div>
 	</div>
@@ -61,7 +63,7 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h4 style="text-align: center; font-weight: bold;">Add Console</h4>
+						<h4 class="mid headTitle">Add Console</h4>
 					</div>
 					<div class="modal-body">
 						<form action="">

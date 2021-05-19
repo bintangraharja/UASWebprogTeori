@@ -10,7 +10,7 @@
                 </span>
             </li>
             <li>
-                <a href="HomeAdmin.php">
+                <a href="<?php echo site_url('home'); ?>">
                     <i class="fa fa-home fa-2x"></i>
                     <span class="nav-text">
                         Home
@@ -18,7 +18,7 @@
                 </a>
             </li>
             <li>
-                <a href="OrderListAdmin.php">
+                <a href="<?php echo site_url('admin/orderList'); ?>">
                     <i class="fa fa-list-alt fa-2x"></i>
                     <span class="nav-text">
                         Order List
@@ -34,7 +34,7 @@
                 </span>
             </li>
             <li>
-               <a href="#">
+               <a href="<?php echo site_url('Login/logout');?>">
                     <i class="fa fa-sign-out fa-2x"></i>
                     <span class="nav-text">
                         LogOut
