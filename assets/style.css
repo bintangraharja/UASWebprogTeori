@@ -220,13 +220,6 @@ nav ul, nav li {
   color: #FFCC29;
   transition-duration: 0.5s;
 }
-.captcha-container {
-	display: -ms-flexbox;
-	display: flex;
-	width: 100%;
-	margin-bottom: 15px;
-  display: inline-block;
-}
 
 /* style modal */
 .modal-header {
