@@ -9,12 +9,5 @@ Class Home_model extends CI_Model{
 
         return $query-> result_array();
     }
-    function get_image($id){
-        $query = $this->db->query("Select * From menu WHERE ConsoleID = '$id'");
-        foreach($query->result_array() as $consol){
-            $image = $consol['Pict'];
-        }
-        echo $image;
-    }
 }
 ?>

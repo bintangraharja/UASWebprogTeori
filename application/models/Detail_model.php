@@ -22,7 +22,7 @@ Class Detail_model extends CI_Model{
     }
 
     function get_temp($userid){
-        $query = $this->db->query("SELECT temporder.ConsoleID, temporder.UserID, menu.ConsoleName, menu.Price
+        $query = $this->db->query("SELECT temporder.ConsoleID, temporder.UserID, menu.ConsoleName, menu.Price, menu.Pict, menu.extPict
         FROM temporder
         LEFT OUTER JOIN menu ON menu.ConsoleID = temporder.ConsoleID
         WHERE temporder.UserID = '$userid'");

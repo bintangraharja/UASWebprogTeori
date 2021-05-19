@@ -7,16 +7,13 @@ class Admin extends CI_Controller
     {
         parent::__construct();
         $this->load->model('admin_model');
+        $this->load->model('home_model');
     }
-    public function add_console(){
-        $values = array(
-            'ConsoleID' => $this->input->post('fname'),
-            'ConsoleName' => $this->input->post('lname'),
-            'Price' => $this->input->post('email'),
-            'Qty' => md5($this->input->post('password')),
-            'Description' => $this->input->post('address'),
-            'extPict' => $this->input->post('phone')
-        );
+    public function index(){
+    $data['product'] = $this->home_model->get_product();
+    $data['style'] = $this->load->view('include/style.php', NULL, TRUE);
+    $data['sidebar'] = $this->load->view('sidebar/sidebarAdmin.php',NULL,TRUE);
+    $this->load->view('page/HomeAdmin.php',$data);
     }
     public function orderList(){
         $data['orders'] = $this->admin_model->get_list_order();
@@ -26,24 +23,35 @@ class Admin extends CI_Controller
     }
     public function editConsole(){
         $id = $this->uri->segment(3);
+        $data['detCon'] = $this->admin_model->get_con($id);
         $data['style'] = $this->load->view('include/style.php', NULL, TRUE);
         $data['sidebar'] = $this->load->view('sidebar/sidebarAdmin.php',NULL,TRUE);
         $this->load->view('page/EditConsoleAdmin.php', $data);
     }
+    public function edit_console(){
+        $config['upload_path'] = './image_for_captcha/';
+        $config['allowed_types'] = 'jpeg|png|jpg';
+        $config['max_size'] = 10240;
+        $config['max_width'] = 4000;
+        $config['max_height'] = 4000;
+        $this->load->library('upload',$config);
+        $this->admin_model->edit_console();
+        redirect('admin');
+    }
     public function deleteConsole(){
         $id = $this->uri->segment(3);
         $this->admin_model->delete_console($id);
-        redirect('home');
+        redirect('admin');
     }
     public function addConsole(){
         $config['upload_path'] = './image_for_captcha/';
-        $config['allowed_types'] = 'jpg';
-        $config['max_size'] = 500;
-        $config['max_width'] = 1920;
-        $config['max_height'] = 1080;
+        $config['allowed_types'] = 'jpeg|png|jpg';
+        $config['max_size'] = 10240;
+        $config['max_width'] = 4000;
+        $config['max_height'] = 4000;
         $this->load->library('upload',$config);
         if(! $this->upload->do_upload('imageMenu')){
-        redirect('home');
+        redirect('admin');
         }else{
             $image_data = $this->upload->data();
             $imgdata = file_get_contents($image_data['full_path']);
@@ -59,7 +67,7 @@ class Admin extends CI_Controller
             );
             $this->admin_model->add_console($values);
             unlink($image_data['full_path']);
-            redirect('home');
+            redirect('admin');
         }
     }
 }

@@ -9,7 +9,7 @@
 	<div class="container">
 		<div class="container-fluid">
 		<br><br><br>
-		<a href="<?php echo site_url('home'); ?>"><button type="submit" class="btn btnBack"><span class="glyphicon glyphicon-chevron-left"></span> Back</button></a>
+		<a href="<?php echo site_url('admin'); ?>"><button type="submit" class="btn btnBack"><span class="glyphicon glyphicon-chevron-left"></span> Back</button></a>
 		<br><br>
 		<table id="tables" class="table table-border dataTable adminOrder" style="width: 100%;">
 			<tr>

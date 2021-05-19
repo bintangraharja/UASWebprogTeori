@@ -10,7 +10,7 @@
                 </span>
             </li>
             <li>
-                <a href="<?php echo site_url('home'); ?>">
+                <a href="<?php echo site_url('admin'); ?>">
                     <i class="fa fa-home fa-2x"></i>
                     <span class="nav-text">
                         Home

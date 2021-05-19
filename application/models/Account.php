@@ -43,7 +43,7 @@ Class Account extends CI_Model{
     }
     public function get_order($id){
         $query = $this->db->query(
-        "SELECT orders.OrderID, orders.Duration, orders.TotalPrice, orders.Status, details.ConsoleID, menu.ConsoleName  
+        "SELECT orders.OrderID, orders.Duration, orders.TotalPrice, orders.Status, details.ConsoleID, menu.ConsoleName , menu.Pict, menu.extPict
         FROM orders LEFT OUTER JOIN details ON details.OrderID = orders.OrderID
                     LEFT OUTER JOIN menu ON menu.ConsoleID = details.ConsoleID
                     WHERE orders.UserID = '$id' 
@@ -55,7 +55,7 @@ Class Account extends CI_Model{
     }
     public function get_det($id){
         $query = $this->db->query(
-        "SELECT   menu.ConsoleID, menu.ConsoleName, orders.Duration
+        "SELECT   menu.Pict, menu.extPict, menu.ConsoleID, menu.ConsoleName, orders.Duration
         From details 
         JOIN menu ON menu.ConsoleID = details.ConsoleID
         JOIN orders ON orders.OrderID = details.OrderID

@@ -20,6 +20,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			foreach($product as $data){
 				$consolID = $data['ConsoleID'];
 				$consolName = $data['ConsoleName'];
+				$extPict = $data['extPict'];
+				$Pict = $data['Pict'];
 				$i = 0;
 				
 				if($i == 3){
@@ -29,7 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="col-sm-4 pad">
 				<a href="<?php echo site_url('detail').'/'.$consolID;?>" class="menu-border">
 					<div class="card mid">
-						<img class="card-img-top" style="width: 100%" src="<?php echo site_url('home/showImg/').$consolID ?>">
+						<img class="card-img-top" style="width: 100%" src="data:<?php echo $extPict; ?>;base64,<?php echo $Pict; ?>">
 						<div class="card-body">
 							<h4 class="card-title mid"><?php echo $consolName?></h4>
 							<br><br>

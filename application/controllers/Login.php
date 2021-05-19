@@ -30,8 +30,8 @@ class Login extends CI_Controller
                         'status' => "login"
                     );
                     $this->session->set_userdata($data_session);
-                    if($akun['userID'] == "1"){
-                        redirect('home');
+                    if($akun['UserID']== "1"){
+                        redirect('admin');
                     }else{
                         redirect('home');
                     }

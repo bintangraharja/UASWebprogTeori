@@ -13,6 +13,8 @@
 		$price = $data['Price'];
 		$qty = $data['Qty'];
 		$desc = $data['Description'];
+		$Pict = $data['Pict'];
+		$extPict = $data['extPict'];
 	}
 	?>
 	<div class="container">
@@ -21,7 +23,7 @@
 		<br>
 		<a href="<?php echo base_url(); ?>"><button type="submit" class="btn btnBack"><span class="glyphicon glyphicon-chevron-left"></span> Back</button></a>
 		<br><br>
-		<img src="<?php echo site_url('home/showImg/').$id ?>" style="width:50%">
+		<img src="data:<?php echo $extPict; ?>;base64,<?php echo $Pict; ?>" style="width:50%">
 		<div class ="col-sm-6" style="text-align:justify; float:right;">
 			<h1 class="titleConsole"><?php echo $name ?></h1>
 			<hr style="border-color: #FFBB0E">

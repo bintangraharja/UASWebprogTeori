@@ -33,18 +33,20 @@
 						$Price =$row['Price'];
 						$Qty = $row['Qty'];
 						$Desc = $row['Description'];
+						$extPict = $row['extPict'];
+						$Pict = $row['Pict'];
 						
 					?>
 				<tr>
 					<td>
-					<img style="width: 135px; height: 90px;" src="<?php echo site_url('home/showImg/').$ConsoleID ?>"></td>
+					<img style="width: 135px; height: 90px;" src="data:<?php echo $extPict; ?>;base64,<?php echo $Pict; ?>"></td>
 					<td> <?php echo $ConsoleID; ?></td>
 					<td> <?php echo $ConsoleName; ?></td>
 					<td> Rp<?php echo $Price; ?>,- </td>
 					<td> <?php echo $Qty; ?> </td>
 					<td> <?php echo $Desc; ?></td>
 					<td> 
-						<a class='editMenu' href="<?php echo site_url('admin/editConsole'); ?>">
+						<a class='editMenu' href="<?php echo site_url('admin/editConsole').'/'.$ConsoleID; ?>">
 							<span class="glyphicon glyphicon-wrench"></span>
 						</a>
 						<a class='deleteMenu' href="<?php echo site_url('admin/deleteConsole').'/'.$ConsoleID;?>">

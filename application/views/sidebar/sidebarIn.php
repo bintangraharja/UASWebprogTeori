@@ -96,10 +96,12 @@
                                     $ConsoleId = $temp['ConsoleID'];
                                     $ConsoleName = $temp['ConsoleName'];
                                     $Price = $temp['Price'];
+                                    $Pict = $temp['Pict'];
+                                    $extPict = $temp['extPict'];
                                     
                             ?>
                             <tr>
-                                <td><img style="width: auto; height: 100px;" src="<?php echo site_url('home/showImg/').$ConsoleId ?>"></td>
+                                <td><img style="width: auto; height: 100px;" src="data:<?php echo $extPict; ?>;base64,<?php echo $Pict; ?>"></td>
                                 <td><?php echo $ConsoleName; ?> </td>
                                 <td><p class="duration">1 days</p></td>
                                 <td class="hide"><input class="normal<?php echo $x?>" value="<?php echo $Price; ?>"></input></td>

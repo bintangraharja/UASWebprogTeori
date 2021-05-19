@@ -24,6 +24,8 @@
 			$consolID = $row['ConsoleID'];
 			$consolName = $row['ConsoleName'];
 			$duration = $row['Duration'];
+			$Pict = $row['Pict'];
+			$extPict = $row['extPict'];
 		?>
 		<div class="container">
 			<div class="row">
@@ -43,7 +45,7 @@
 
 			<div class="row" style="text-align: center;">
 				<div class="col-sm-3">
-					<img class="card-img-top" style="width: 100%" src="<?php echo site_url('home/showImg/').$consolID ?>">
+					<img class="card-img-top" style="width: 100%" src="data:<?php echo $extPict; ?>;base64,<?php echo $Pict; ?>">
 				</div>
 				<div class="col-sm-4">
 					<h3><?php echo $consolName; ?></h3>

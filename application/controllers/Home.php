@@ -14,37 +14,14 @@ class Home extends CI_Controller
     {
         $data['product'] = $this->home_model->get_product();
         $data['style'] = $this->load->view('include/style.php', NULL, TRUE);
-       
         if($this->session->userdata('status') != 'login'){
             $data['sidebar'] = $this->load->view('sidebar/sidebar.php', $data, TRUE);
             $this->load->view('page/HomePage.php',$data);
-        }else if($this->session->userdata('userID') == '1'){
-            $data['sidebar'] = $this->load->view('sidebar/sidebarAdmin.php',NULL,TRUE);
-            $this->load->view('page/HomeAdmin.php',$data);
-        }else{
+        }else {
             $data['orders'] = $this->detail_model->get_temp($this->session->userdata('userID'));    
             $data['sidebar'] = $this->load->view('sidebar/sidebarIn.php', $data, TRUE);
             $this->load->view('page/HomePage.php',$data);
         }
-       
-        
-        
-    }
-    public function admin(){
-        $data['product'] = $this->home_model->get_product();
-        $data['style'] = $this->load->view('include/style.php', NULL, TRUE);
-        if($this->session->userdata('name') != 'Admin'){
-        $data['sidebar'] = $this->load->view('sidebar/sidebar.php', $data, TRUE);
-        }else{
-        $data['orders'] = $this->detail_model->get_temp($this->session->userdata('userID'));    
-        $data['sidebar'] = $this->load->view('sidebar/sidebarIn.php', $data, TRUE);
-        }
-        $this->load->view('page/HomePage.php',$data);
-    }
-    public function showImg(){
-        $id = $this->uri->segment(3);
-        $this->load->model('home_model');
-        $this->home_model->get_image($id);
     }
     public function showDetail(){
         $id = $this->uri->segment(3);
