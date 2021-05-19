@@ -18,5 +18,8 @@ Class Admin_model extends CI_Model{
     public function delete_console($ConsoleID){
         $this->db->delete('menu',['ConsoleID' =>$ConsoleID]);
     }
+    public function add_console($values){
+        $this->db->insert('menu',$values);
+    }
 }
 ?>

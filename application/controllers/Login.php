@@ -18,7 +18,7 @@ class Login extends CI_Controller
             if ($captcha_insert === $contain_sess_captcha) {
                 $email = $this->input->post('email');
                 $password = md5($this->input->post('password'));
-        
+                delete_files("image_for_captcha");
                 $cek = $this->Account->login($email,$password);
                 if($cek > 0){
                     
@@ -31,10 +31,8 @@ class Login extends CI_Controller
                     );
                     $this->session->set_userdata($data_session);
                     if($akun['userID'] == "1"){
-                        delete_files("image_for_captcha");
                         redirect('home');
                     }else{
-                        delete_files("image_for_captcha");
                         redirect('home');
                     }
                 }else{

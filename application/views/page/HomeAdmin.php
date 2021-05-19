@@ -66,7 +66,7 @@
 						<h4 class="mid headTitle">Add Console</h4>
 					</div>
 					<div class="modal-body">
-						<form action="">
+						<form action="<?php echo site_url('admin/addConsole');?>" method="post" enctype="multipart/form-data">
 							<div class="form-group row">
 								<label class="col-sm-3 col-form-label" style="color: black;">Console ID</label>
 								<div class="col-sm-9">
@@ -94,7 +94,7 @@
 							<div class="form-group row">
 								<label class="col-sm-3 col-form-label" style="color: black;">Description</label>
 								<div class="col-sm-9">
-									<textarea name="consoleID" id="consoleID" class="form-control" required></textarea> 
+									<textarea name="description" id="description" class="form-control" required></textarea> 
 								</div>
 							</div>
 							<div class="form-group">
@@ -103,7 +103,7 @@
 							</div>
 							<div class="form-group row">
 								<div class="pull-right" style="margin-right: 15px;">
-									<button type="submit" class="btn btnInsert">Submit</button>
+									<input name="submit" type="submit" class="btn btnInsert" value="Submit"/>
 									<button type="submit" class="btn btnBack" data-dismiss="modal">Cancel</button>
 								</div>
 							</div>
