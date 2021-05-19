@@ -34,8 +34,11 @@ Class Account extends CI_Model{
                 'OrderID' => $orderID,
                 'ConsoleID' => $row['ConsoleID']
             );
+            $CId = $row['ConsoleID'];
+            $this->db->query("UPDATE `menu` SET `Qty`= `Qty`-1 WHERE ConsoleID = '$CId'");
             $this->db->insert('details',$values);
         }
+
         $this->db->delete('temporder',['UserID' => $id]);
     }
     public function get_order($id){
