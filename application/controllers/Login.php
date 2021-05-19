@@ -21,7 +21,7 @@ class Login extends CI_Controller
         
                 $cek = $this->Account->login($email,$password);
                 if($cek > 0){
-                    delete_files("image_for_captcha");
+                    
                     $akun = $this->Account->getakun($email, $password);
                     
                     $data_session = array(
@@ -31,8 +31,10 @@ class Login extends CI_Controller
                     );
                     $this->session->set_userdata($data_session);
                     if($akun['FName'] == "Admin"){
+                        delete_files("image_for_captcha");
                         redirect('home/admin');
                     }else{
+                        delete_files("image_for_captcha");
                         redirect('home');
                     }
                 }else{
@@ -47,11 +49,12 @@ class Login extends CI_Controller
         $config = array(
             'word' => '',
             'img_url' => base_url() . 'image_for_captcha/',
+            'font_path' => FCPATH .'/assets/Font/verdana.ttf',
             'img_path' => 'image_for_captcha/',
             'img_height' => 45,
             'word_length' => 5,
             'img_width' => '150',
-            'font_size' => 16
+            'font_size' => 5 
         );
         $captcha = create_captcha($config);
         $this->session->unset_userdata('valuecaptchaCode');
@@ -66,11 +69,12 @@ class Login extends CI_Controller
         $config = array(
             'word' => '',
             'img_url' => base_url() . 'image_for_captcha/',
+            'font_path' => FCPATH .'/assets/Font/verdana.ttf',
             'img_path' => 'image_for_captcha/',
             'img_height' => 45,
             'word_length' => 5,
             'img_width' => '150',
-            'font_size' => 16
+            'font_size' => 5 
         );
         $captcha = create_captcha($config);
         $this->session->unset_userdata('valuecaptchaCode');

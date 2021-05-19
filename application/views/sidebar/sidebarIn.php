@@ -81,8 +81,9 @@
                             </tr>
                             <?php
                                 $totalPrice = 0;
-                                $duration = 1;
+                                $x = -1;
                                 foreach($orders as $temp){
+                                    $x++;
                                     $ConsoleId = $temp['ConsoleID'];
                                     $ConsoleName = $temp['ConsoleName'];
                                     $Price = $temp['Price'];
@@ -92,9 +93,10 @@
                                 <td><img style="width: auto; height: 100px;" src="<?php echo site_url('home/showImg/').$ConsoleId ?>"></td>
                                 <td><?php echo $ConsoleName; ?> </td>
                                 <td><p class="duration">1 days</p></td>
-                                <td><?php echo $Price; ?> </td>
+                                <td class="hide"><input class="normal<?php echo $x?>" value="<?php echo $Price; ?>"></input></td>
+                                <td><p class="price<?php echo $x?>"><?php echo $Price; ?></p></td>
                                 <td>
-                                    <a href="#">
+                                    <a href="<?php echo site_url('home/delete_temp/').$ConsoleId;?>">
                                         <span class="glyphicon glyphicon-minus-sign deleteMenu"></span>
                                     </a>
                                 </td>
@@ -125,7 +127,11 @@
                 <div class="modal-body subCart">
                     <p class="subtotal">Subtotal    : <?php echo $totalPrice; ?> </p>                
                 </div>
-                <input name="submit" type="submit" class="btn btn-block btnBook" value="BOOK ORDER">
+                <form action="<?php echo base_url().'home/book_order';?>" method="post" enctype="multipart/form-data">
+                    <input type="text" class="hide submitDurasi" name="durasi" value="1">
+                    <input type="text" class="hide submitTotal" name="total" value="<?php echo $totalPrice;?>">
+                    <input type="submit" class="btn btn-block btnBook" name="submit" value="BOOK ORDER">
+                </form>
             </div>
         </div>
     </div>
@@ -164,6 +170,16 @@
             $time += 1;
             $(".duration").text($time + " days");
             $(".subtotal").text("Subtotal    : " + <?php echo $totalPrice?>*$time);
+            
+            for(i = 0; i <= <?php echo $x?>; i++){
+                var test = ".price" + i;
+                var baseprice = ".normal" + i;
+                var price = $(baseprice).val();
+                $(test).text(price*$time);
+            }
+            $(".submitDurasi").val($time);
+            $(".submitTotal").val(<?php echo $totalPrice?>*$time);
+            console.log($(".submitDurasi").val());
             $input.val(val + 1);
         });
         $('.input-number-decrement').click(function() {
@@ -172,6 +188,14 @@
             $time -= 1;
             $(".duration").text($time + " days");
             $(".subtotal").text("Subtotal    : " + <?php echo $totalPrice?>*$time);
+            for(i = 0; i <= <?php echo $x?>; i++){
+                var test = ".price" + i;
+                var baseprice = ".normal" + i;
+                var price = $(baseprice).val();
+                $(test).text(price*$time);
+            }
+            $(".submitDurasi").val($time);
+            $(".submitTotal").val(<?php echo $totalPrice?>*$time);
             $input.val(val - 1);
         })
     });
