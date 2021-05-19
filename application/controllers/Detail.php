@@ -10,14 +10,18 @@ class Detail extends CI_Controller
     }
     function _remap($id){
         if($this->input->post('submit')){
-            $consoleID = $id;
+            if($this->session->userdata('status') == 'login'){
+                $consoleID = $id;
+                $value = array(
+                    'ConsoleID' => $consoleID,
+                    'UserID'=> $this->session->userdata('userID') 
+                );
+                $this->detail_model->add_temp($value);
+                $this->index($id);
+            }else{
+                redirect('Login');
+            }
             
-            $value = array(
-                'ConsoleID' => $consoleID,
-                'UserID'=> $this->session->userdata('userID') 
-            );
-            $this->detail_model->add_temp($value);
-            $this->index($id);
         }else{
         $this->index($id);
         }

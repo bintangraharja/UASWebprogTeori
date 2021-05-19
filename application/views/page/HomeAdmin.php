@@ -47,7 +47,7 @@
 						<a class='editMenu' href="<?php echo site_url('admin/editConsole'); ?>">
 							<span class="glyphicon glyphicon-wrench"></span>
 						</a>
-						<a class='deleteMenu'>
+						<a class='deleteMenu' href="<?php echo site_url('admin/deleteConsole').'/'.$ConsoleID;?>">
 							<span class="glyphicon glyphicon-trash"></span>
 						</a>
 					</td>

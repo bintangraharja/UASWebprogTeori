@@ -19,53 +19,25 @@
 				<th> Transaction Status </th>
 				<th> Action </th>
 			</tr>
-				<!-- <?php 
-					
-				?> -->
+				<?php 
+					foreach($orders as $row){
+						$OrderID = $row['OrderID'];
+						$Name = $row['FullName'];
+						$Total = $row['TotalPrice'];
+						$Status = $row['Status'];
+				?> 
 			<tr>
-				<td> C0001 </td>
-				<td> Ferry Lay </td>
-				<td> Rp150.000,- </td>
-				<td> Ready to Pick-Up </td>
+				<td> <?php echo $OrderID; ?> </td>
+				<td> <?php echo $Name; ?> </td>
+				<td> Rp<?php echo $Total;?>,- </td>
+				<td> <?php echo $Status; ?> </td>
 				<td> 
-					<a class='editMenu' data-toggle="#myModal" data-target="#myModal" id="updateStatus">
+					<a class='editMenu' data-toggle="#myModal" data-target="#myModal">
 						<span class="glyphicon glyphicon-wrench"></span>
 					</a>
 				</td>
 			</tr>
-			<tr>
-				<td> C0001 </td>
-				<td> Ferry Lay </td>
-				<td> Rp150.000,- </td>
-				<td> Ready to Pick-Up </td>
-				<td> 
-					<a class='editMenu'>
-						<span class="glyphicon glyphicon-wrench"></span>
-					</a>
-				</td>
-			</tr>
-			<tr>
-				<td> C0001 </td>
-				<td> Ferry Lay </td>
-				<td> Rp150.000,- </td>
-				<td> Ready to Pick-Up </td>
-				<td> 
-					<a class='editMenu'>
-						<span class="glyphicon glyphicon-wrench"></span>
-					</a>
-				</td>
-			</tr>
-			<tr>
-				<td> C0001 </td>
-				<td> Ferry Lay </td>
-				<td> Rp150.000,- </td>
-				<td> Ready to Pick-Up </td>
-				<td> 
-					<a class='editMenu'>
-						<span class="glyphicon glyphicon-wrench"></span>
-					</a>
-				</td>
-			</tr>
+			<?php } ?>
 		</table>
 	</div>
 	</div>
@@ -170,7 +142,7 @@
 				backdrop: 'static'
 			});
 
-			$('#updateStatus').click(function() {
+			$('.editMenu').click(function() {
 				$('#addModal').modal('show');
 			})
 		});

@@ -19,6 +19,7 @@ class Admin extends CI_Controller
         );
     }
     public function orderList(){
+        $data['orders'] = $this->admin_model->get_list_order();
         $data['style'] = $this->load->view('include/style.php', NULL, TRUE);
         $data['sidebar'] = $this->load->view('sidebar/sidebarAdmin.php',NULL,TRUE);
         $this->load->view('page/OrderListAdmin.php', $data);
@@ -28,6 +29,11 @@ class Admin extends CI_Controller
         $data['style'] = $this->load->view('include/style.php', NULL, TRUE);
         $data['sidebar'] = $this->load->view('sidebar/sidebarAdmin.php',NULL,TRUE);
         $this->load->view('page/EditConsoleAdmin.php', $data);
+    }
+    public function deleteConsole(){
+        $id = $this->uri->segment(3);
+        $this->admin_model->delete_console($id);
+        redirect('home');
     }
 }
 ?>

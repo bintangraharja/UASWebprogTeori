@@ -10,7 +10,7 @@ Class Detail_model extends CI_Model{
         return $query-> result_array();
     }
     function add_temp($value){
-        $this->db->insert('temporder', $value);
+        $cek = $this->db->insert('temporder', $value);
     }
     function check_product($id, $userid){
         $query = $this->db->query("Select * From temporder Where ConsoleID ='$id' AND UserID = '$userid'");

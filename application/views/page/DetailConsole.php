@@ -29,7 +29,7 @@
 			<p class="desc">Ready Stock &nbsp;: <?php echo $qty; ?> </p>
 			<p class="desc">Rent Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: Rp <?php echo $price ?>,- /day</p>
 			<form method="post">
-			<input name="submit" type="submit" class="btn btnBook" value="Add to Cart" <?php if($bought == "true"){echo 'disabled';}?> ></input>
+			<input name="submit" type="submit" class="btn btnBook" value="Add to Cart" <?php if($bought == "true" || $qty == 0){echo 'disabled';}?> ></input>
 			</form>
 		</div>
 	</div>
