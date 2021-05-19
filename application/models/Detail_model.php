@@ -28,5 +28,9 @@ Class Detail_model extends CI_Model{
         WHERE temporder.UserID = '$userid'");
         return $query->result_array();
     }
+
+    function del_temp($where){
+        return $this->db->delete('temporder',$where);
+    }
 }
 ?>

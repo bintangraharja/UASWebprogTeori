@@ -33,6 +33,22 @@ class Home extends CI_Controller
         $data['sidebar'] = $this->load->view('sidebar/sidebar.php', $data, TRUE);
         $this->load->view('page/DetailConsole.php',$data);
     }
-
+    public function delete_temp(){
+        $id = $this->uri->segment(3);
+        $userid = $this->session->userdata("userID");
+        $delete = $this->detail_model->del_temp(['ConsoleID' => $id , 'UserID' => $userid]);
+        if($delete){
+            redirect('home');
+        }
+    }
+    public function book_order(){
+        $this->load->model('account');
+        //$this->output->enable_profiler(TRUE);
+        $id = $this->session->userdata('userID');
+        if($this->input->post('submit')){
+            $this->account->order($id, $this->input->post('durasi'), $this->input->post('total'));
+            redirect('home');
+        }
+    }
 }
 ?>
