@@ -10,23 +10,52 @@ class Admin extends CI_Controller
         $this->load->model('home_model');
     }
     public function index(){
-    $data['product'] = $this->home_model->get_product();
-    $data['style'] = $this->load->view('include/style.php', NULL, TRUE);
-    $data['sidebar'] = $this->load->view('sidebar/sidebarAdmin.php',NULL,TRUE);
-    $this->load->view('page/HomeAdmin.php',$data);
+        if($this->session->userdata('userID') != '1'){
+            $this->session->sess_destroy();
+            redirect('home');
+        }
+        $data['product'] = $this->home_model->get_product();
+        $data['style'] = $this->load->view('include/style.php', NULL, TRUE);
+        $data['sidebar'] = $this->load->view('sidebar/sidebarAdmin.php',NULL,TRUE);
+        $this->load->view('page/HomeAdmin.php',$data);
     }
     public function orderList(){
+        if($this->session->userdata('userID') != '1'){
+            $this->session->sess_destroy();
+            redirect('home');
+        }
         $data['orders'] = $this->admin_model->get_list_order();
         $data['style'] = $this->load->view('include/style.php', NULL, TRUE);
         $data['sidebar'] = $this->load->view('sidebar/sidebarAdmin.php',NULL,TRUE);
         $this->load->view('page/OrderListAdmin.php', $data);
     }
     public function statusAdmin(){
+        if($this->session->userdata('userID') != '1'){
+            $this->session->sess_destroy();
+            redirect('home');
+        }
+        $id = $this->uri->segment(3);
+        $data['orders'] = $this->admin_model->get_details_edit($id);
+        $data['OrderID'] = $id;
         $data['style'] = $this->load->view('include/style.php', NULL, TRUE);
         $data['sidebar'] = $this->load->view('sidebar/sidebarAdmin.php',NULL,TRUE);
         $this->load->view('page/StatusAdmin.php', $data);
     }
+    public function updateStatus(){
+        if(!$this->input->post('Status')){
+            redirect('Forbidden');
+        }else{
+            $Status = $this->input->post('Status');
+            $OrderID = $this->input->post('OrderID');
+            $this->admin_model->update_status($Status,$OrderID);
+            redirect('admin/orderList');
+        }
+    }
     public function editConsole(){
+        if($this->session->userdata('userID') != '1'){
+            $this->session->sess_destroy();
+            redirect('home');
+        }
         $id = $this->uri->segment(3);
         $data['detCon'] = $this->admin_model->get_con($id);
         $data['style'] = $this->load->view('include/style.php', NULL, TRUE);

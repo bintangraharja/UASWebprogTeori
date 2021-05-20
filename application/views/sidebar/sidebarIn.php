@@ -105,7 +105,7 @@
                                 <td><?php echo $ConsoleName; ?> </td>
                                 <td><p class="duration">1 days</p></td>
                                 <td class="hide"><input class="normal<?php echo $x?>" value="<?php echo $Price; ?>"></input></td>
-                                <td><p class="price<?php echo $x?>"><?php echo $Price; ?></p></td>
+                                <td><p class="price<?php echo $x?>">Rp <?php echo $Price; ?>,-</p></td>
                                 <td>
                                     <a href="<?php echo site_url('home/delete_temp/').$ConsoleId;?>">
                                         <span class="glyphicon glyphicon-minus-sign deleteMenu"></span>
@@ -137,7 +137,7 @@
                     </div>
                 </div>
                 <div class="modal-body subCart">
-                    <p class="subtotal">Subtotal    : <?php echo $totalPrice; ?> </p>                
+                    <p class="subtotal">Subtotal    : Rp <?php echo $totalPrice; ?>,-</p>                
                 </div>
                 <form action="<?php echo base_url().'home/book_order';?>" method="post" enctype="multipart/form-data">
                     <input type="text" class="hide submitDurasi" name="durasi" value="1">

@@ -12,6 +12,9 @@ class Home extends CI_Controller
 
     public function index()
     {
+        if($this->session->userdata('userID') == '1'){
+            redirect('admin');
+        }
         $data['product'] = $this->home_model->get_product();
         $data['style'] = $this->load->view('include/style.php', NULL, TRUE);
         if($this->session->userdata('status') != 'login'){

@@ -5,7 +5,8 @@ Class Detail_model extends CI_Model{
         parent::__construct();
     }
     function get_product($id){
-        $query = $this->db->query("Select * From menu Where ConsoleID ='$id'");
+        $id = $this->db->escape($id);
+        $query = $this->db->query("Select * From menu Where ConsoleID =$id");
 
         return $query-> result_array();
     }
@@ -13,7 +14,9 @@ Class Detail_model extends CI_Model{
         $cek = $this->db->insert('temporder', $value);
     }
     function check_product($id, $userid){
-        $query = $this->db->query("Select * From temporder Where ConsoleID ='$id' AND UserID = '$userid'");
+        $id = $this->db->escape($id);
+        $userid = $this->db->escape($userid);
+        $query = $this->db->query("Select * From temporder Where ConsoleID =$id AND UserID = $userid");
         if($query->num_rows() == 1){
             return 'true';
         }else{
@@ -22,10 +25,11 @@ Class Detail_model extends CI_Model{
     }
 
     function get_temp($userid){
+        $userid = $this->db->escape($userid);
         $query = $this->db->query("SELECT temporder.ConsoleID, temporder.UserID, menu.ConsoleName, menu.Price, menu.Pict, menu.extPict
         FROM temporder
         LEFT OUTER JOIN menu ON menu.ConsoleID = temporder.ConsoleID
-        WHERE temporder.UserID = '$userid'");
+        WHERE temporder.UserID = $userid");
         return $query->result_array();
     }
 

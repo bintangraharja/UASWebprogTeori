@@ -31,7 +31,7 @@
 				<td> Rp<?php echo $Total;?>,- </td>
 				<td> <?php echo $Status; ?> </td>
 				<td> 
-					<a class='editMenu' href="<?php echo site_url('admin/statusAdmin'); ?>">
+					<a class='editMenu' href="<?php echo site_url('admin/statusAdmin/').$OrderID; ?>">
 						<span class="glyphicon glyphicon-wrench"></span>
 					</a>
 				</td>
