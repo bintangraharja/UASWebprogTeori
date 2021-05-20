@@ -19,7 +19,8 @@ Class Admin_model extends CI_Model{
         $this->db->delete('menu',['ConsoleID' =>$ConsoleID]);
     }
     public function get_con($id){
-        $query = $this->db->query("SELECT * FROM menu WHERE ConsoleID = '$id'");
+        $id = $this->db->escape($id);
+        $query = $this->db->query("SELECT * FROM menu WHERE ConsoleID = $id");
         return $query->result_array();
     }
     public function edit_console(){
@@ -52,6 +53,24 @@ Class Admin_model extends CI_Model{
             unlink($image_data['full_path']);
         }
         redirect('admin');
+    }
+
+    public function update_status($Status, $OrderID){
+        $Status = $this->db->escape($Status);
+        $OrderID = $this->db->escape($OrderID);
+        $this->db->query("UPDATE `orders` SET `Status`=$Status WHERE OrderID = $OrderID");
+    }
+
+    public function get_details_edit($id){
+        $id = $this->db->escape($id);
+        $query = $this->db->query(
+            "SELECT menu.ConsoleName, menu.Price, orders.Duration, orders.TotalPrice, orders.Status, account.FName, account.LName
+            FROM orders
+            JOIN details ON orders.OrderID = details.OrderID
+            JOIN menu ON details.ConsoleID = menu.ConsoleID
+            JOIN account on orders.UserID = account.UserID
+            WHERE orders.OrderID = $id");
+        return $query->result_array();
     }
 }
 ?>

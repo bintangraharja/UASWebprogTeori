@@ -10,6 +10,9 @@ class OrderDetail extends CI_Controller
         $this->load->model('account');
     }
     function _remap($id){
+        if($this->session->userdata('userID') == '1'){
+            redirect('admin');
+        }
         $this->index($id);
     }
 

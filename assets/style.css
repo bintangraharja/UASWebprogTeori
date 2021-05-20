@@ -261,7 +261,6 @@ nav ul, nav li {
 .input-number-group .input-number {
   width: 80px;
   padding: 0 12px;
-  vertical-align: top;
   text-align: center;
   outline: none;
   display: block;
@@ -348,5 +347,5 @@ nav ul, nav li {
 .editStatus {
   position: relative;
   padding: 15px;
-  background-color: yellow;
+  background-color: floralwhite;
 }

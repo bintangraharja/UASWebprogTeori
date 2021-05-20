@@ -12,6 +12,9 @@ class SignUp extends CI_Controller
 
     public function index()
     {
+        if($this->session->userdata('status')){
+            redirect('home');
+        }
         if($this->input->post('submit')){
             $this->form_validation->set_rules('password', 'Password', 'required|min_length[8]');
             if($this->form_validation->run() != false){
