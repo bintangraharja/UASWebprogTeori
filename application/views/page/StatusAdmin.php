@@ -64,7 +64,7 @@
 						<p>Rp30.000,-</p>
 					</div>
 				</div>
-				<hr style="color: #000000">		
+				<hr style="color: black;">		
 				<div class="row">
 					<div class="col-sm-8">
 						<p>Total Price</p>

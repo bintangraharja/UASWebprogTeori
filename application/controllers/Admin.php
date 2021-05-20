@@ -37,8 +37,8 @@ class Admin extends CI_Controller
         $config['upload_path'] = './image_for_captcha/';
         $config['allowed_types'] = 'jpeg|png|jpg';
         $config['max_size'] = 10240;
-        $config['max_width'] = 4000;
-        $config['max_height'] = 4000;
+        $config['max_width'] = 5000;
+        $config['max_height'] = 5000;
         $this->load->library('upload',$config);
         $this->admin_model->edit_console();
         redirect('admin');
@@ -52,8 +52,8 @@ class Admin extends CI_Controller
         $config['upload_path'] = './image_for_captcha/';
         $config['allowed_types'] = 'jpeg|png|jpg';
         $config['max_size'] = 10240;
-        $config['max_width'] = 4000;
-        $config['max_height'] = 4000;
+        $config['max_width'] = 5000;
+        $config['max_height'] = 5000;
         $this->load->library('upload',$config);
         if(! $this->upload->do_upload('imageMenu')){
         redirect('admin');
