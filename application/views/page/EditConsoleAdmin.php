@@ -14,7 +14,7 @@
 			<h4 class="mid headTitle">Edit Console</h4>
 		</div>
 		<div class="modal-body">
-			<form action="<?php echo site_url('admin/edit_console');?>" method="post" enctype="multipart/form-data">
+			<form action="<?php echo site_url('admin/edit_console');?>" method="post" enctype="multipart/form-data" autocomplete="off">
 				<?php
 				foreach($detCon as $data){
 					$ConsoleID = $data['ConsoleID'];

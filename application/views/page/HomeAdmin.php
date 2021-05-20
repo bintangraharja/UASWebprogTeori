@@ -68,7 +68,7 @@
 						<h4 class="mid headTitle">Add Console</h4>
 					</div>
 					<div class="modal-body">
-						<form action="<?php echo site_url('admin/addConsole');?>" method="post" enctype="multipart/form-data">
+						<form action="<?php echo site_url('admin/addConsole');?>" method="post" enctype="multipart/form-data" autocomplete="off">
 							<div class="form-group row">
 								<label class="col-sm-3 col-form-label" style="color: black;">Console ID</label>
 								<div class="col-sm-9">

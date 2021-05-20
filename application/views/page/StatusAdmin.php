@@ -15,7 +15,7 @@
 			<h4 class="mid headTitle">Data Edit</h4>
 		</div>
 		<div class="editStatus">
-			<form action="<?php echo site_url('admin/updateStatus')?>" method="POST">
+			<form action="<?php echo site_url('admin/updateStatus')?>" method="POST" autocomplete="off">
 				<div class="row">
 					<div class="col-sm-6">
 						<p>Order ID<p>

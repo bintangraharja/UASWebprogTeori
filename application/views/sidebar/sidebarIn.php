@@ -9,15 +9,13 @@
                 <img src="<?php echo base_url().'assets/LogoLandscape.png'?>" width="150" height="60">
                 </span>
             </li>
-            <li class="has-subnav">
-                <a href="#">
-                    <i class="fa fa-search fa-2x"></i>
-                    <span class="nav-text">
-                        <form method="post" action="<?php echo site_url('home/search');?>">
-                            <input type="text" name="searchKey" placeholder="Search.." title="Type in a category">
-                        </form>
-                    </span>
-                </a> 
+            <li>
+                <i class="fa fa-search fa-2x"></i>
+                <span class="nav-text">
+                    <form method="post" action="<?php echo site_url('home/search');?>" autocomplete="off">
+                        <input type="text" name="searchKey" placeholder="Search.." title="Type in a category" style="color: black;">
+                    </form>
+                </span>
             </li>
             <li>
                 <a href="<?php echo site_url('home');?>">

@@ -21,7 +21,7 @@
 	<div class="container bg-form">
 		<h2 class="headTitle">Sign In</h2>
 		<br>
-		<form action="<?php echo site_url('Login') ?>" method="post">
+		<form action="<?php echo site_url('Login') ?>" method="post" autocomplete="off">
 			<div class="form-group row">
 				<label class="col-sm-2">Email</label>
 				<div class="col-sm-10">
