@@ -21,6 +21,11 @@ class Admin extends CI_Controller
         $data['sidebar'] = $this->load->view('sidebar/sidebarAdmin.php',NULL,TRUE);
         $this->load->view('page/OrderListAdmin.php', $data);
     }
+    public function statusAdmin(){
+        $data['style'] = $this->load->view('include/style.php', NULL, TRUE);
+        $data['sidebar'] = $this->load->view('sidebar/sidebarAdmin.php',NULL,TRUE);
+        $this->load->view('page/StatusAdmin.php', $data);
+    }
     public function editConsole(){
         $id = $this->uri->segment(3);
         $data['detCon'] = $this->admin_model->get_con($id);

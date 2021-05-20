@@ -338,9 +338,15 @@ nav ul, nav li {
   text-align: center;
   color: white;
 }
+
 .adminOrder.table-border, .adminOrder.table-border>tbody>tr{
   border: 3px solid #00FD47;
 }
 .editMenu {
   color: #1400FF;
+}
+.editStatus {
+  position: relative;
+  padding: 15px;
+  background-color: yellow;
 }
