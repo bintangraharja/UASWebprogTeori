@@ -49,5 +49,24 @@ class Home extends CI_Controller
             redirect('home');
         }
     }
+    public function search(){
+        if($this->input->post('searchKey')){
+            if($this->session->userdata('userID') == '1'){
+                redirect('admin');
+            }
+            $data['product'] = $this->home_model->search_product($this->input->post('searchKey'));
+            $data['style'] = $this->load->view('include/style.php', NULL, TRUE);
+            if($this->session->userdata('status') != 'login'){
+                $data['sidebar'] = $this->load->view('sidebar/sidebar.php', $data, TRUE);
+                $this->load->view('page/Search.php',$data);
+            }else {
+                $data['orders'] = $this->detail_model->get_temp($this->session->userdata('userID'));    
+                $data['sidebar'] = $this->load->view('sidebar/sidebarIn.php', $data, TRUE);
+                $this->load->view('page/Search.php',$data);
+            }
+        }else{
+            redirect('Forbidden');
+        }
+    }
 }
 ?>

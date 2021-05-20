@@ -13,7 +13,9 @@
                 <a href="#">
                     <i class="fa fa-search fa-2x"></i>
                     <span class="nav-text">
-                        <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category">
+                        <form method="post" action="<?php echo site_url('home/search');?>">
+                            <input type="text" name="searchKey" placeholder="Search.." title="Type in a category">
+                        </form>
                     </span>
                 </a> 
             </li>
