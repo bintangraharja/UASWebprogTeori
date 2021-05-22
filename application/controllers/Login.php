@@ -15,9 +15,6 @@ class Login extends CI_Controller
         if($this->session->userdata('status')){
             redirect('home');
         }
-        if($this->input->post('refresh')){
-            delete_files("image_for_captcha");
-        }
         if ($this->input->post('submit')) {
             $captcha_insert = $this->input->post('captcha');
             $contain_sess_captcha = $this->session->userdata('valuecaptchaCode');
@@ -50,6 +47,7 @@ class Login extends CI_Controller
                 $data['failInfo'] = "Captcha didn't match!";
             }
         }
+        delete_files("image_for_captcha");
         $config = array(
             'word' => '',
             'img_url' => base_url() . 'image_for_captcha/',
