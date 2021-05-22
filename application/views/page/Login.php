@@ -41,7 +41,7 @@
 				<div class="col-sm-10">
 					<p id="image_captcha">
 						<?php echo $captchaImg; ?>
-						<a href="javascript:void(0);"><button class="btn" style="background-color: #858585; color: white;"><span class="glyphicon glyphicon-refresh"></span></button></a>
+						<input name="refresh"type="submit" class="btn" style="background-color: #858585; color: white;" value="↻"></input>
 					</p>
 					<input type="text" name="captcha" />
 				</div>
