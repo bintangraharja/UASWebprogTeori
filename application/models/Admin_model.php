@@ -56,6 +56,13 @@ Class Admin_model extends CI_Model{
     }
 
     public function update_status($Status, $OrderID){
+        if($Status == 'Completed'){
+            $query = $this->db->query("Select ConsoleID FROM details WHERE OrderID =$OrderID");
+            foreach($query->result_array() as $data){
+                $CId = $data['ConsoleID']; 
+                $this->db->query("UPDATE `menu` SET `Qty`= `Qty`+ 1 WHERE ConsoleID = '$CId'");
+            }
+        }
         $Status = $this->db->escape($Status);
         $OrderID = $this->db->escape($OrderID);
         $this->db->query("UPDATE `orders` SET `Status`=$Status WHERE OrderID = $OrderID");

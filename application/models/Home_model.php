@@ -1,11 +1,10 @@
 <?php
 
-use ParagonIE\Sodium\Core\Curve25519\Ge\P2;
 
 Class Home_model extends CI_Model{
 
-    function __construct(){
-        parent::__construct();
+    function construct(){
+        parent::construct();
     }
     function get_product(){
         $query = $this->db->query("Select * From menu");

@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!DOCTYPE html>
 <html>
 <head>
+	
 	<title>Rental UAS IF430 - Gaming Buddy</title>
 	<?php 
 		echo $style;

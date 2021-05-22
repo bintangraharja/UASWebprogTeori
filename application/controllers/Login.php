@@ -55,7 +55,7 @@ class Login extends CI_Controller
             'img_height' => 45,
             'word_length' => 5,
             'img_width' => '150',
-            'font_size' => 5 
+            'font_size' => 20
         );
         $captcha = create_captcha($config);
         $this->session->unset_userdata('valuecaptchaCode');
@@ -75,7 +75,7 @@ class Login extends CI_Controller
             'img_height' => 45,
             'word_length' => 5,
             'img_width' => '150',
-            'font_size' => 5 
+            'font_size' => 20
         );
         $captcha = create_captcha($config);
         $this->session->unset_userdata('valuecaptchaCode');
