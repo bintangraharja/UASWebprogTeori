@@ -139,7 +139,7 @@
                 <div class="modal-body subCart">
                     <p class="subtotal">Subtotal    : Rp <?php echo $totalPrice; ?>,-</p>                
                 </div>
-                <form action="<?php echo base_url().'home/book_order';?>" method="post" enctype="multipart/form-data">
+                <form action="<?php echo site_url('Home/book_order');?>" method="post" enctype="multipart/form-data">
                     <input type="text" class="hide submitDurasi" name="durasi" value="1">
                     <input type="text" class="hide submitTotal" name="total" value="<?php echo $totalPrice;?>">
                     <input type="submit" class="btn btn-block btnBook" name="submit" value="BOOK ORDER">
