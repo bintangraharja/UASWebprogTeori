@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		echo $style;
 	?>
 </head>
-<body class="home" style= "background-image: url('../<?php base_url('')?>assets/Background/HomeBG.jpg');">
+<body class="home" style= "background-image: url('http://localhost/UASWebProgTeori/assets/Background/HomeBG.jpg');">
 	<div class="container">
 		<br><br><br>
 		<?php echo $sidebar; ?>

@@ -5,7 +5,7 @@
 	<title>Rental UAS IF430 - Gaming Buddy</title>
 	<?php echo $style; ?>
 </head>
-<body class="home" style= "background-image: url('<?php base_url('')?>assets/Background/HomeBG.jpg');">
+<body class="home" style= "background-image: url('http://localhost/UASWebProgTeori/assets/Background/HomeBG.jpg');">
 <?php echo $sidebar; ?>
 	<br><br><br><br>
 	<div class="container bg-form">
